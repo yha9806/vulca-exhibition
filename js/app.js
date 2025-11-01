@@ -147,16 +147,7 @@ function renderArtworkSelector() {
       </p>
     `;
 
-    card.addEventListener('click', () => {
-      document.querySelectorAll('.artwork-card').forEach(c => {
-        c.style.borderColor = 'transparent';
-        c.style.backgroundColor = 'var(--color-card-hover)';
-      });
-      card.style.borderColor = 'var(--color-accent)';
-      card.style.backgroundColor = 'var(--color-card-warm)';
-      AppState.setSelectedArtwork(artwork.id);
-    });
-
+    // Event listener removed - handled by event delegation in eventDelegation.js
     container.appendChild(card);
   });
 }
@@ -202,16 +193,7 @@ function renderPersonaSelector() {
       </p>
     `;
 
-    card.addEventListener('click', () => {
-      document.querySelectorAll('.persona-selector-card').forEach(c => {
-        c.style.borderColor = 'transparent';
-        c.style.backgroundColor = 'var(--color-persona-bg)';
-      });
-      card.style.borderColor = 'var(--color-accent)';
-      card.style.backgroundColor = 'var(--color-card-warm)';
-      AppState.setSelectedPersona(persona.id);
-    });
-
+    // Event listener removed - handled by event delegation in eventDelegation.js
     container.appendChild(card);
   });
 }
@@ -294,22 +276,7 @@ function showError(message) {
 }
 
 // ==================== SMOOTH SCROLLING ====================
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href === '#' || href === '#main-content') return;
-
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
+// Smooth scrolling now handled by event delegation in eventDelegation.js
 
 // ==================== INITIALIZATION ====================
 
@@ -322,31 +289,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function setupEventListeners() {
-  // Get Critique Button
-  const getCritiqueBtn = document.getElementById('getCritiqueBtn');
-  if (getCritiqueBtn) {
-    getCritiqueBtn.addEventListener('click', handleGetCritique);
+  // Initialize delegated event handlers
+  if (typeof EventDelegation !== 'undefined') {
+    EventDelegation.init();
+  } else {
+    console.warn('EventDelegation not loaded, falling back to direct listeners');
+    // Fallback for if eventDelegation.js fails to load
+    const getCritiqueBtn = document.getElementById('getCritiqueBtn');
+    if (getCritiqueBtn) getCritiqueBtn.addEventListener('click', handleGetCritique);
+    const closeCritiqueBtn = document.getElementById('closeCritiqueBtn');
+    if (closeCritiqueBtn) closeCritiqueBtn.addEventListener('click', hideCritique);
+    const getComparisonBtn = document.getElementById('getComparisonBtn');
+    if (getComparisonBtn) getComparisonBtn.addEventListener('click', handleGetComparison);
+    const closeComparisonBtn = document.getElementById('closeComparisonBtn');
+    if (closeComparisonBtn) closeComparisonBtn.addEventListener('click', hideComparison);
   }
 
-  // Close Critique Button
-  const closeCritiqueBtn = document.getElementById('closeCritiqueBtn');
-  if (closeCritiqueBtn) {
-    closeCritiqueBtn.addEventListener('click', hideCritique);
-  }
-
-  // Get Comparison Button
-  const getComparisonBtn = document.getElementById('getComparisonBtn');
-  if (getComparisonBtn) {
-    getComparisonBtn.addEventListener('click', handleGetComparison);
-  }
-
-  // Close Comparison Button
-  const closeComparisonBtn = document.getElementById('closeComparisonBtn');
-  if (closeComparisonBtn) {
-    closeComparisonBtn.addEventListener('click', hideComparison);
-  }
-
-  console.log('Event listeners set up');
+  console.log('Event listeners set up (delegated)');
 }
 
 function handleGetCritique() {
