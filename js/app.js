@@ -587,6 +587,200 @@ function throttle(func, delay) {
   };
 }
 
+// ==================== EXHIBITION PLAN RENDERING ====================
+
+function initExhibitionPlan() {
+  if (typeof ExhibitionPlan === 'undefined') {
+    console.warn('ExhibitionPlan data not loaded');
+    return;
+  }
+
+  renderBudgetChart();
+  renderBudgetTable();
+  renderTimeline();
+  renderUpgrades();
+  renderRisks();
+  console.log('Exhibition plan initialized');
+}
+
+function renderBudgetChart() {
+  const canvas = document.getElementById('budgetChart');
+  if (!canvas) return;
+
+  const budgetItems = ExhibitionPlan.budget.items;
+  const labels = budgetItems.map(item => item.name_zh);
+  const data = budgetItems.map(item => item.budget);
+  const colors = budgetItems.map(item => item.color);
+
+  // Destroy existing chart if it exists
+  if (window.budgetChartInstance) {
+    window.budgetChartInstance.destroy();
+  }
+
+  const ctx = canvas.getContext('2d');
+  window.budgetChartInstance = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: data,
+        backgroundColor: colors,
+        borderColor: '#fff',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            font: { size: 12 },
+            padding: 15,
+            usePointStyle: true
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const label = context.label || '';
+              const value = context.parsed || 0;
+              const percentage = ((value / ExhibitionPlan.budget.subtotal) * 100).toFixed(1);
+              return `${label}: ¥${value} (${percentage}%)`;
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+function renderBudgetTable() {
+  const container = document.getElementById('budgetTable');
+  if (!container) return;
+
+  let html = '<table style="width: 100%; border-collapse: collapse; font-size: var(--size-body);">';
+  html += '<thead><tr style="background-color: #f5f5f5; border-bottom: 2px solid var(--color-accent);">';
+  html += '<th style="padding: var(--space-sm); text-align: left;">类别</th>';
+  html += '<th style="padding: var(--space-sm); text-align: left;">具体项目</th>';
+  html += '<th style="padding: var(--space-sm); text-align: right;">单价</th>';
+  html += '<th style="padding: var(--space-sm); text-align: right;">小计</th>';
+  html += '</tr></thead><tbody>';
+
+  ExhibitionPlan.budget.items.forEach((category, idx) => {
+    category.details.forEach((detail, detailIdx) => {
+      const isFirstRow = detailIdx === 0;
+      html += '<tr style="border-bottom: 1px solid #e0e0e0;">';
+
+      if (isFirstRow) {
+        html += `<td style="padding: var(--space-sm); font-weight: 600; color: var(--color-accent); vertical-align: top; border-right: 2px solid ${category.color};" rowspan="${category.details.length}">`;
+        html += `${category.name_zh}<br><span style="font-size: var(--size-caption); color: var(--color-text-secondary); font-weight: 400;">¥${category.budget}</span>`;
+        html += '</td>';
+      }
+
+      html += `<td style="padding: var(--space-sm);">${detail.item}</td>`;
+      html += `<td style="padding: var(--space-sm); text-align: right;">¥${detail.price}</td>`;
+      html += `<td style="padding: var(--space-sm); text-align: right; font-weight: 600;">¥${detail.subtotal}</td>`;
+      html += '</tr>';
+    });
+  });
+
+  html += '<tr style="background-color: #f9f9f9; border-top: 2px solid var(--color-accent); font-weight: 600;">';
+  html += '<td colspan="3" style="padding: var(--space-sm); text-align: right;">小计</td>';
+  html += `<td style="padding: var(--space-sm); text-align: right;">¥${ExhibitionPlan.budget.subtotal}</td>`;
+  html += '</tr>';
+  html += '<tr style="background-color: #f0f0f0;">';
+  html += '<td colspan="3" style="padding: var(--space-sm); text-align: right;">应急储备金 (5%)</td>';
+  html += `<td style="padding: var(--space-sm); text-align: right;">¥${ExhibitionPlan.budget.contingency}</td>`;
+  html += '</tr>';
+  html += '<tr style="background-color: var(--color-accent); color: white; font-weight: 700;">';
+  html += '<td colspan="3" style="padding: var(--space-sm); text-align: right;">总计</td>';
+  html += `<td style="padding: var(--space-sm); text-align: right;">¥${ExhibitionPlan.budget.total}</td>`;
+  html += '</tr></tbody></table>';
+
+  container.innerHTML = html;
+}
+
+function renderTimeline() {
+  const container = document.getElementById('timelineContainer');
+  if (!container) return;
+
+  let html = '';
+  ExhibitionPlan.timeline.forEach((week) => {
+    html += `<div style="padding: var(--space-md); border-left: 4px solid var(--color-accent); background-color: #fafaf9; border-radius: var(--border-radius-lg);">`;
+    html += `<div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--space-sm);">`;
+    html += `<h4 style="font-size: var(--size-body); margin: 0;">第 ${week.week} 周：${week.phase_zh}</h4>`;
+    html += `<span style="font-size: var(--size-caption); color: var(--color-text-secondary);">${week.phase_en}</span>`;
+    html += `</div>`;
+    html += `<ul style="margin: 0; padding-left: var(--space-lg); color: var(--color-text-secondary);">`;
+    week.tasks.forEach(task => {
+      html += `<li style="margin-bottom: var(--space-xs);">${task}</li>`;
+    });
+    html += `</ul></div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function renderUpgrades() {
+  const container = document.getElementById('upgradesContainer');
+  if (!container) return;
+
+  let html = '';
+  ExhibitionPlan.upgrades.forEach((upgrade) => {
+    html += `<div style="padding: var(--space-md); border: 1px solid #e0e0e0; border-radius: var(--border-radius-lg); background-color: #fafaf9;">`;
+    html += `<h4 style="font-size: var(--size-body); margin: 0 0 var(--space-sm) 0; color: var(--color-accent);">`;
+    html += `${upgrade.name_zh}`;
+    html += `</h4>`;
+    html += `<p style="font-size: var(--size-caption); color: var(--color-text-secondary); margin: 0 0 var(--space-md) 0;">`;
+    html += typeof upgrade.cost === 'number' ? `+¥${upgrade.cost}` : upgrade.cost;
+    html += `</p>`;
+    html += `<ul style="margin: 0; padding-left: var(--space-lg); font-size: var(--size-caption);">`;
+    upgrade.features.forEach(feature => {
+      html += `<li style="margin-bottom: var(--space-xs); color: var(--color-text-primary);">${feature}</li>`;
+    });
+    html += `</ul></div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+function renderRisks() {
+  const container = document.getElementById('risksContainer');
+  if (!container) return;
+
+  let html = '';
+  ExhibitionPlan.risks.forEach((risk) => {
+    html += `<div style="padding: var(--space-md); border-left: 4px solid #e74c3c; background-color: #fef5f5; border-radius: var(--border-radius-lg);">`;
+    html += `<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">`;
+    html += `<div>`;
+    html += `<h4 style="font-size: var(--size-body); margin: 0 0 var(--space-xs) 0; color: #c0392b;">`;
+    html += `${risk.risk_zh} <span style="font-size: var(--size-caption); color: var(--color-text-secondary);">${risk.risk_en}</span>`;
+    html += `</h4>`;
+    html += `<p style="margin: 0; font-size: var(--size-caption); color: var(--color-text-secondary);">`;
+    html += `<strong>可能影响：</strong> ${risk.impact_zh}`;
+    html += `</p>`;
+    html += `</div>`;
+    html += `</div>`;
+    html += `<div style="padding: var(--space-sm); background-color: #e8f4f8; border-radius: var(--border-radius-lg); border-left: 3px solid #3498db;">`;
+    html += `<p style="margin: 0; font-size: var(--size-caption); color: #1a5276;">`;
+    html += `<strong>应对措施：</strong> ${risk.mitigation_zh}`;
+    html += `</p>`;
+    html += `</div>`;
+    html += `</div>`;
+  });
+
+  container.innerHTML = html;
+}
+
+// ==================== INITIALIZATION ====================
+
+// Initialize exhibition plan when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  initExhibitionPlan();
+});
+
 // Export for use in other modules if needed
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { AppState, loadData, renderPersonas };
