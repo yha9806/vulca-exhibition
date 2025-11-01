@@ -5,7 +5,7 @@ const ExhibitionPlan = {
   // 项目基本信息
   project: {
     title: "VULCA 艺术装置基础款实施方案",
-    subtitle: "基于"潮汐的负形"主题展览",
+    subtitle: "基于\"潮汐的负形\"主题展览",
     budget_total: 10700,
     currency: "人民币",
     date: "2025年1月"
