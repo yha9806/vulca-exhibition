@@ -38,6 +38,11 @@ const AppState = {
   },
 
   getCritique(artworkId, personaId) {
+    // Use DataIndexes for O(1) lookup instead of array.find() O(n)
+    if (typeof DataIndexes !== 'undefined') {
+      return DataIndexes.getCritique(artworkId, personaId);
+    }
+    // Fallback to linear search if DataIndexes not available
     return this.critiqueLibrary.find(c =>
       c.artwork_id === artworkId && c.persona_id === personaId
     );
@@ -49,8 +54,12 @@ const AppState = {
     if (!statusEl || !btnEl) return;
 
     if (this.selectedArtwork && this.selectedPersona) {
-      const artwork = this.artworks.find(a => a.id === this.selectedArtwork);
-      const persona = this.personas.find(p => p.id === this.selectedPersona);
+      const artwork = (typeof DataIndexes !== 'undefined')
+        ? DataIndexes.getArtwork(this.selectedArtwork)
+        : this.artworks.find(a => a.id === this.selectedArtwork);
+      const persona = (typeof DataIndexes !== 'undefined')
+        ? DataIndexes.getPersona(this.selectedPersona)
+        : this.personas.find(p => p.id === this.selectedPersona);
       statusEl.textContent = `已选择: ${artwork?.title_zh || artwork?.title} & ${persona?.name_zh || persona?.name_en}`;
       btnEl.disabled = false;
       btnEl.style.opacity = '1';
@@ -81,6 +90,11 @@ async function loadData() {
       console.log('Loaded critique library:', AppState.critiqueLibrary.length, 'critiques');
     } else {
       throw new Error('Exhibition data not loaded');
+    }
+
+    // Initialize data indexes for O(1) lookups
+    if (typeof DataIndexes !== 'undefined') {
+      DataIndexes.init();
     }
 
     renderPersonas();
@@ -352,8 +366,12 @@ function handleGetCritique() {
 }
 
 function displayCritique(critique) {
-  const artwork = AppState.artworks.find(a => a.id === critique.artwork_id);
-  const persona = AppState.personas.find(p => p.id === critique.persona_id);
+  const artwork = (typeof DataIndexes !== 'undefined')
+    ? DataIndexes.getArtwork(critique.artwork_id)
+    : AppState.artworks.find(a => a.id === critique.artwork_id);
+  const persona = (typeof DataIndexes !== 'undefined')
+    ? DataIndexes.getPersona(critique.persona_id)
+    : AppState.personas.find(p => p.id === critique.persona_id);
 
   if (!artwork || !persona) {
     console.warn('Artwork or persona not found');
@@ -409,7 +427,9 @@ function handleGetComparison() {
 }
 
 function displayComparison(critiques) {
-  const artwork = AppState.artworks.find(a => a.id === critiques[0].artwork_id);
+  const artwork = (typeof DataIndexes !== 'undefined')
+    ? DataIndexes.getArtwork(critiques[0].artwork_id)
+    : AppState.artworks.find(a => a.id === critiques[0].artwork_id);
   if (!artwork) {
     console.warn('Artwork not found');
     return;
@@ -424,7 +444,9 @@ function displayComparison(critiques) {
 
   // Create comparison card for each critique
   critiques.forEach(critique => {
-    const persona = AppState.personas.find(p => p.id === critique.persona_id);
+    const persona = (typeof DataIndexes !== 'undefined')
+      ? DataIndexes.getPersona(critique.persona_id)
+      : AppState.personas.find(p => p.id === critique.persona_id);
     if (!persona) return;
 
     const card = document.createElement('div');
