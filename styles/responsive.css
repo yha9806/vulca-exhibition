@@ -507,13 +507,13 @@
 @media (max-width: 640px) {
   /* Critique display - stack text and chart */
   .critique-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 
   /* RPAIT Chart - smaller on mobile */
   #rpaitChart {
-    max-width: 220px !important;
-    max-height: 220px !important;
+    max-width: 220px;
+    max-height: 220px;
   }
 
   /* RPAIT container alignment */
@@ -524,7 +524,7 @@
 
   /* Comparison grid - single column on mobile */
   .comparison-grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 
   /* Comparison cards - full width on mobile */
@@ -534,7 +534,7 @@
 
   /* Reduce padding on comparison cards for mobile */
   .comparison-grid > div > div {
-    padding: var(--space-md) !important;
+    padding: var(--space-md);
   }
 
   .comparison-grid p {
@@ -549,12 +549,12 @@
 
   /* Artwork selector - smaller cards */
   .artwork-grid {
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   }
 
   /* Persona selector - 3 columns on mobile for better spacing */
   .persona-selector {
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /* Button layout - stack buttons vertically */
@@ -567,11 +567,11 @@
 
   /* Button wrapper - flex column layout */
   .btn-wrapper {
-    flex-direction: column !important;
+    flex-direction: column;
   }
 
   .btn-wrapper button {
-    width: 100% !important;
+    width: 100%;
   }
 }
 
@@ -579,37 +579,37 @@
 @media (min-width: 641px) and (max-width: 1024px) {
   /* Critique display - use 2-column layout */
   .critique-grid {
-    grid-template-columns: 1fr 260px !important;
+    grid-template-columns: 1fr 260px;
   }
 
   /* RPAIT Chart - medium size */
   #rpaitChart {
-    max-width: 240px !important;
-    max-height: 240px !important;
+    max-width: 240px;
+    max-height: 240px;
   }
 
   /* Comparison grid - 2 columns on tablet */
   .comparison-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   /* Artwork selector - 4 columns */
   .artwork-grid {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   /* Persona selector - 3 columns */
   .persona-selector {
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /* Buttons - horizontal layout maintained */
   .btn-wrapper {
-    flex-direction: row !important;
+    flex-direction: row;
   }
 
   .btn-wrapper button {
-    width: auto !important;
+    width: auto;
     flex: 1;
     min-width: 140px;
   }
@@ -619,37 +619,37 @@
 @media (min-width: 1025px) {
   /* Critique display - original 2-column layout */
   .critique-grid {
-    grid-template-columns: 1fr 300px !important;
+    grid-template-columns: 1fr 300px;
   }
 
   /* RPAIT Chart - large size */
   #rpaitChart {
-    max-width: 280px !important;
-    max-height: 280px !important;
+    max-width: 280px;
+    max-height: 280px;
   }
 
   /* Comparison grid - 3 columns on desktop */
   .comparison-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
   /* Artwork selector - 4 columns */
   .artwork-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 
   /* Persona selector - 6 columns (2 rows) */
   .persona-selector {
-    grid-template-columns: repeat(6, 1fr) !important;
+    grid-template-columns: repeat(6, 1fr);
   }
 
   /* Buttons - horizontal layout */
   .btn-wrapper {
-    flex-direction: row !important;
+    flex-direction: row;
   }
 
   .btn-wrapper button {
-    width: auto !important;
+    width: auto;
   }
 }
 

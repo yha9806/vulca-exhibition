@@ -118,7 +118,7 @@ function renderArtworkSelector() {
       padding: var(--space-md);
       border: 2px solid transparent;
       border-radius: var(--border-radius-lg);
-      background-color: #F0EEE8;
+      background-color: var(--color-card-hover);
       cursor: pointer;
       transition: all 0.3s ease;
       text-align: center;
@@ -136,10 +136,10 @@ function renderArtworkSelector() {
     card.addEventListener('click', () => {
       document.querySelectorAll('.artwork-card').forEach(c => {
         c.style.borderColor = 'transparent';
-        c.style.backgroundColor = '#F0EEE8';
+        c.style.backgroundColor = 'var(--color-card-hover)';
       });
       card.style.borderColor = 'var(--color-accent)';
-      card.style.backgroundColor = '#FFF8F0';
+      card.style.backgroundColor = 'var(--color-card-warm)';
       AppState.setSelectedArtwork(artwork.id);
     });
 
@@ -164,7 +164,7 @@ function renderPersonaSelector() {
       padding: var(--space-md);
       border: 2px solid transparent;
       border-radius: var(--border-radius-lg);
-      background-color: #F0EEE8;
+      background-color: var(--color-persona-bg);
       cursor: pointer;
       transition: all 0.3s ease;
       text-align: center;
@@ -173,7 +173,7 @@ function renderPersonaSelector() {
       <div style="
         width: 60px;
         height: 60px;
-        background-color: #E8E4D8;
+        background-color: var(--color-card-border);
         border-radius: var(--border-radius-lg);
         display: flex;
         align-items: center;
@@ -191,10 +191,10 @@ function renderPersonaSelector() {
     card.addEventListener('click', () => {
       document.querySelectorAll('.persona-selector-card').forEach(c => {
         c.style.borderColor = 'transparent';
-        c.style.backgroundColor = '#F0EEE8';
+        c.style.backgroundColor = 'var(--color-persona-bg)';
       });
       card.style.borderColor = 'var(--color-accent)';
-      card.style.backgroundColor = '#FFF8F0';
+      card.style.backgroundColor = 'var(--color-card-warm)';
       AppState.setSelectedPersona(persona.id);
     });
 
@@ -227,7 +227,7 @@ function createPersonaCard(persona) {
       <div class="persona-portrait" style="
         width: 120px;
         height: 120px;
-        background-color: #F0EEE8;
+        background-color: var(--color-persona-bg);
         margin: 0 auto var(--space-md);
         border-radius: var(--border-radius-lg);
         display: flex;
@@ -522,7 +522,7 @@ function drawRpaitChart(persona) {
       borderWidth: 2,
       pointRadius: 4,
       pointBackgroundColor: 'var(--color-accent, #D4A373)',
-      pointBorderColor: '#fff',
+      pointBorderColor: 'var(--color-white-pure, #fff)',
       pointBorderWidth: 2
     }]
   };
@@ -666,7 +666,7 @@ function renderBudgetTable() {
   if (!container) return;
 
   let html = '<table style="width: 100%; border-collapse: collapse; font-size: var(--size-body);">';
-  html += '<thead><tr style="background-color: #f5f5f5; border-bottom: 2px solid var(--color-accent);">';
+  html += '<thead><tr style="background-color: var(--color-bg-light); border-bottom: 2px solid var(--color-accent);">';
   html += '<th style="padding: var(--space-sm); text-align: left;">类别</th>';
   html += '<th style="padding: var(--space-sm); text-align: left;">具体项目</th>';
   html += '<th style="padding: var(--space-sm); text-align: right;">单价</th>';
@@ -676,7 +676,7 @@ function renderBudgetTable() {
   ExhibitionPlan.budget.items.forEach((category, idx) => {
     category.details.forEach((detail, detailIdx) => {
       const isFirstRow = detailIdx === 0;
-      html += '<tr style="border-bottom: 1px solid #e0e0e0;">';
+      html += '<tr style="border-bottom: 1px solid var(--color-border);">';
 
       if (isFirstRow) {
         html += `<td style="padding: var(--space-sm); font-weight: 600; color: var(--color-accent); vertical-align: top; border-right: 2px solid ${category.color};" rowspan="${category.details.length}">`;
@@ -691,11 +691,11 @@ function renderBudgetTable() {
     });
   });
 
-  html += '<tr style="background-color: #f9f9f9; border-top: 2px solid var(--color-accent); font-weight: 600;">';
+  html += '<tr style="background-color: var(--color-bg-lighter); border-top: 2px solid var(--color-accent); font-weight: 600;">';
   html += '<td colspan="3" style="padding: var(--space-sm); text-align: right;">小计</td>';
   html += `<td style="padding: var(--space-sm); text-align: right;">¥${ExhibitionPlan.budget.subtotal}</td>`;
   html += '</tr>';
-  html += '<tr style="background-color: #f0f0f0;">';
+  html += '<tr style="background-color: var(--color-border-light);">';
   html += '<td colspan="3" style="padding: var(--space-sm); text-align: right;">应急储备金 (5%)</td>';
   html += `<td style="padding: var(--space-sm); text-align: right;">¥${ExhibitionPlan.budget.contingency}</td>`;
   html += '</tr>';
@@ -757,10 +757,10 @@ function renderRisks() {
 
   let html = '';
   ExhibitionPlan.risks.forEach((risk) => {
-    html += `<div style="padding: var(--space-md); border-left: 4px solid #e74c3c; background-color: #fef5f5; border-radius: var(--border-radius-lg);">`;
+    html += `<div style="padding: var(--space-md); border-left: 4px solid var(--color-error-dark); background-color: var(--color-error-light); border-radius: var(--border-radius-lg);">`;
     html += `<div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-sm);">`;
     html += `<div>`;
-    html += `<h4 style="font-size: var(--size-body); margin: 0 0 var(--space-xs) 0; color: #c0392b;">`;
+    html += `<h4 style="font-size: var(--size-body); margin: 0 0 var(--space-xs) 0; color: var(--color-error-dark);">`;
     html += `${risk.risk_zh} <span style="font-size: var(--size-caption); color: var(--color-text-secondary);">${risk.risk_en}</span>`;
     html += `</h4>`;
     html += `<p style="margin: 0; font-size: var(--size-caption); color: var(--color-text-secondary);">`;
@@ -768,8 +768,8 @@ function renderRisks() {
     html += `</p>`;
     html += `</div>`;
     html += `</div>`;
-    html += `<div style="padding: var(--space-sm); background-color: #e8f4f8; border-radius: var(--border-radius-lg); border-left: 3px solid #3498db;">`;
-    html += `<p style="margin: 0; font-size: var(--size-caption); color: #1a5276;">`;
+    html += `<div style="padding: var(--space-sm); background-color: var(--color-info-light); border-radius: var(--border-radius-lg); border-left: 3px solid var(--color-info);">`;
+    html += `<p style="margin: 0; font-size: var(--size-caption); color: var(--color-text-primary);">`;
     html += `<strong>应对措施：</strong> ${risk.mitigation_zh}`;
     html += `</p>`;
     html += `</div>`;
