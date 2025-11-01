@@ -53,28 +53,14 @@ async function loadData() {
     AppState.personas = personasData.personas;
     console.log('Loaded personas:', AppState.personas);
 
-    // Load artworks data
-    const artworksResponse = await fetch('/data/artworks-v2.json');
-    if (!artworksResponse.ok) throw new Error(`HTTP ${artworksResponse.status}`);
-    const artworksData = await artworksResponse.json();
-    AppState.artworks = artworksData.artworks;
-    console.log('Loaded artworks:', AppState.artworks);
-
-    // Load pre-written critiques (optional - silently fail if unavailable)
-    try {
-      const timestamp = new Date().getTime();
-      const critiquesResponse = await fetch(`/data/critiques-v2.json?v=${timestamp}`);
-      if (critiquesResponse.ok) {
-        const critiquesData = await critiquesResponse.json();
-        AppState.critiqueLibrary = critiquesData.critiques;
-        console.log('Loaded critique library:', AppState.critiqueLibrary.length, 'critiques');
-      } else {
-        console.warn('Critique library not available, continuing without it');
-        AppState.critiqueLibrary = [];
-      }
-    } catch (err) {
-      console.warn('Could not load critique library:', err);
-      AppState.critiqueLibrary = [];
+    // Load artworks and critiques from embedded data (avoids CDN caching issues)
+    if (typeof ExhibitionData !== 'undefined') {
+      AppState.artworks = ExhibitionData.artworks;
+      AppState.critiqueLibrary = ExhibitionData.critiques;
+      console.log('Loaded artworks:', AppState.artworks.length);
+      console.log('Loaded critique library:', AppState.critiqueLibrary.length, 'critiques');
+    } else {
+      throw new Error('Exhibition data not loaded');
     }
 
     renderPersonas();
