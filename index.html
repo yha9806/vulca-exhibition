@@ -161,7 +161,7 @@
 
         <!-- Get Critique Button -->
         <div class="mt-lg text-center">
-          <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+          <div class="btn-wrapper" style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
             <button id="getCritiqueBtn" class="btn btn-primary btn-lg" style="cursor: pointer;">
               获取评论
             </button>
@@ -200,7 +200,7 @@
             </div>
 
             <!-- Critique Content with RPAIT Chart -->
-            <div style="display: grid; grid-template-columns: 1fr 300px; gap: var(--space-lg); align-items: start;">
+            <div class="critique-grid" style="display: grid; grid-template-columns: 1fr 300px; gap: var(--space-lg); align-items: start;">
               <!-- Bilingual Critique -->
               <div id="critiqueContent" style="line-height: 1.8;">
                 <p id="critiqueEnglish" style="margin-bottom: var(--space-md); color: var(--color-text-primary);"></p>
@@ -208,8 +208,8 @@
               </div>
 
               <!-- RPAIT Visualization -->
-              <div style="display: flex; flex-direction: column; align-items: center;">
-                <canvas id="rpaitChart" style="max-width: 280px; max-height: 280px;"></canvas>
+              <div class="rpait-container" style="display: flex; flex-direction: column; align-items: center;">
+                <canvas id="rpaitChart" style="max-width: 280px; max-height: 280px; width: 100%;"></canvas>
                 <p style="font-size: var(--size-caption); color: var(--color-text-secondary); margin-top: var(--space-sm); text-align: center;">
                   评论维度<br><span style="font-size: 10px;">R P A I T</span>
                 </p>
@@ -244,9 +244,9 @@
             </div>
 
             <!-- Comparison Grid -->
-            <div id="comparisonGrid" style="
+            <div id="comparisonGrid" class="comparison-grid" style="
               display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
               gap: var(--space-lg);
             ">
               <!-- Individual critique cards will be inserted here -->

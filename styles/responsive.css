@@ -501,6 +501,176 @@
   /* This would be handled via srcset on img elements */
 }
 
+/* ==================== INTERACTIVE COMPONENTS RESPONSIVENESS ==================== */
+
+/* Mobile: Stack critique display vertically */
+@media (max-width: 640px) {
+  /* Critique display - stack text and chart */
+  .critique-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* RPAIT Chart - smaller on mobile */
+  #rpaitChart {
+    max-width: 220px !important;
+    max-height: 220px !important;
+  }
+
+  /* RPAIT container alignment */
+  .rpait-container {
+    justify-self: center;
+    margin-top: var(--space-md);
+  }
+
+  /* Comparison grid - single column on mobile */
+  .comparison-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Comparison cards - full width on mobile */
+  .comparison-grid > div {
+    min-width: 0;
+  }
+
+  /* Reduce padding on comparison cards for mobile */
+  .comparison-grid > div > div {
+    padding: var(--space-md) !important;
+  }
+
+  .comparison-grid p {
+    font-size: var(--size-caption);
+  }
+
+  /* Critique text in comparison cards */
+  .comparison-grid p:not([style*="margin"]) {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* Artwork selector - smaller cards */
+  .artwork-grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)) !important;
+  }
+
+  /* Persona selector - 3 columns on mobile for better spacing */
+  .persona-selector {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* Button layout - stack buttons vertically */
+  #getCritiqueBtn,
+  #getComparisonBtn {
+    width: 100%;
+    min-height: 48px;
+    font-size: var(--size-body);
+  }
+
+  /* Button wrapper - flex column layout */
+  .btn-wrapper {
+    flex-direction: column !important;
+  }
+
+  .btn-wrapper button {
+    width: 100% !important;
+  }
+}
+
+/* Tablet: Optimize for medium screens */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Critique display - use 2-column layout */
+  .critique-grid {
+    grid-template-columns: 1fr 260px !important;
+  }
+
+  /* RPAIT Chart - medium size */
+  #rpaitChart {
+    max-width: 240px !important;
+    max-height: 240px !important;
+  }
+
+  /* Comparison grid - 2 columns on tablet */
+  .comparison-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Artwork selector - 4 columns */
+  .artwork-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  /* Persona selector - 3 columns */
+  .persona-selector {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* Buttons - horizontal layout maintained */
+  .btn-wrapper {
+    flex-direction: row !important;
+  }
+
+  .btn-wrapper button {
+    width: auto !important;
+    flex: 1;
+    min-width: 140px;
+  }
+}
+
+/* Desktop: Full layout */
+@media (min-width: 1025px) {
+  /* Critique display - original 2-column layout */
+  .critique-grid {
+    grid-template-columns: 1fr 300px !important;
+  }
+
+  /* RPAIT Chart - large size */
+  #rpaitChart {
+    max-width: 280px !important;
+    max-height: 280px !important;
+  }
+
+  /* Comparison grid - 3 columns on desktop */
+  .comparison-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  }
+
+  /* Artwork selector - 4 columns */
+  .artwork-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+  }
+
+  /* Persona selector - 6 columns (2 rows) */
+  .persona-selector {
+    grid-template-columns: repeat(6, 1fr) !important;
+  }
+
+  /* Buttons - horizontal layout */
+  .btn-wrapper {
+    flex-direction: row !important;
+  }
+
+  .btn-wrapper button {
+    width: auto !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .persona-selector button,
+  .artwork-grid button,
+  #getCritiqueBtn,
+  #getComparisonBtn {
+    min-height: 44px;
+    padding: var(--space-md);
+  }
+
+  /* Reduce spacing for cards on touch devices */
+  .persona-selector,
+  .artwork-grid {
+    gap: var(--space-sm);
+  }
+}
+
 /* ==================== PRINT STYLES ==================== */
 
 @media print {
