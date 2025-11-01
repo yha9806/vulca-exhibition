@@ -8,42 +8,20 @@
       "artist_zh": "愫君（Sougwen Chung）",
       "year": 2022,
       "year_note": "Acquired by Victoria and Albert Museum in 2022",
-      "dimensions": {
-        "width": 56,
-        "height": 42,
-        "unit": "inches"
-      },
+      "dimensions": {"width": 56, "height": 42, "unit": "inches"},
       "medium": "Fine art print, documentary film, RNN neural network model in 3D printed sculpture",
       "medium_zh": "艺术微喷、纪录短片、3D打印雕塑中的递归神经网络模型",
-      "description": "Memory is a groundbreaking artwork where a neural network trained on decades of the artist's drawing data collaborates with the artist to generate new compositions. The work visualizes the intersection of human memory, machine learning, and creative gesture—a profound meditation on how machines might 'remember' and 're-imagine' the artist's movements. Acquired by the Victoria and Albert Museum in 2022, this seminal work stands as a testament to human-machine artistic collaboration.",
-      "description_zh": "《记忆》是一件突破性的艺术作品，其中在艺术家数十年绘画数据上训练的神经网络与艺术家合作生成新的构图。这件作品可视化了人类记忆、机器学习和创意手势的交汇点——对机器如何'记忆'和'重新想象'艺术家的动作的深刻思考。2022年被维多利亚和阿尔伯特博物馆收购，这件开创性作品见证了人机艺术协作的可能性。",
-      "artist_statement": "This work explores the question: what does it mean for a machine to remember? By training neural networks on my drawing gestures, I'm not just creating a tool—I'm engaging in a dialogue with my own artistic practice, mediated through artificial intelligence. The result is neither purely human nor purely machine, but a genuine collaboration that reveals new possibilities in both.",
-      "artist_statement_zh": "这件作品探讨了一个问题：机器'记忆'意味着什么？通过在我的绘画手势上训练神经网络，我不仅在创造一个工具——我在与我自己的艺术实践进行对话，这个对话通过人工智能来介导。结果既不是纯粹的人类创作，也不是纯粹的机器生成，而是一种真正的协作，它揭示了两者中都存在的新的可能性。",
-      "inspiration": "Decades of personal drawing practice and the desire to understand how neural networks can encode artistic memory and gesture",
-      "inspiration_zh": "数十年的个人绘画实践和理解神经网络如何编码艺术记忆和手势的热望",
-      "images": {
-        "high_res": "/assets/artworks/artwork-01-hires.jpg",
-        "thumbnail": "/assets/artworks/artwork-01-thumb.jpg"
-      },
-      "process": {
-        "sketches": [],
-        "iterations": [
-          {
-            "title": "Neural Network Training Phase",
-            "title_zh": "神经网络训练阶段",
-            "notes": "Training RNN on thousands of drawing gestures and movements"
-          },
-          {
-            "title": "Human-Machine Collaboration Phase",
-            "title_zh": "人机协作阶段",
-            "notes": "Artist draws while machine responds and generates complementary marks"
-          }
-        ],
-        "documentation": "The work includes a documentary film showing the collaborative process between artist and AI"
-      },
-      "related_themes": ["人机协作", "人工智能艺术", "数字美学", "记忆与重复"],
-      "related_themes_en": ["Human-Machine Collaboration", "AI Art", "Digital Aesthetics", "Memory and Iteration"],
-      "cultural_references": ["neural networks", "machine learning", "artistic gesture", "technological memory"]
+      "description": "Memory is a groundbreaking artwork where a neural network trained on decades of the artist's drawing data collaborates with the artist to generate new compositions. The work visualizes the intersection of human memory, machine learning, and creative gesture.",
+      "description_zh": "《记忆》是一件突破性的艺术作品，其中在艺术家数十年绘画数据上训练的神经网络与艺术家合作生成新的构图。这件作品可视化了人类记忆、机器学习和创意手势的交汇点。",
+      "artist_statement": "This work explores what it means for a machine to remember.",
+      "artist_statement_zh": "这件作品探讨了机器'记忆'意味着什么。",
+      "inspiration": "Decades of personal drawing practice",
+      "inspiration_zh": "数十年的个人绘画实践",
+      "images": {"high_res": "/assets/artworks/artwork-01-hires.jpg", "thumbnail": "/assets/artworks/artwork-01-thumb.jpg"},
+      "process": {"sketches": [], "iterations": [], "documentation": "Documentary film"},
+      "related_themes": ["人机协作", "人工智能艺术"],
+      "related_themes_en": ["Human-Machine Collaboration", "AI Art"],
+      "cultural_references": ["neural networks", "machine learning"]
     },
     {
       "id": "artwork-02",
@@ -53,42 +31,20 @@
       "artist_zh": "愫君（Sougwen Chung）",
       "year": 2015,
       "year_note": "Excellence Award at Japan Media Arts Festival 2016",
-      "dimensions": {
-        "width": 42,
-        "height": 50,
-        "unit": "cm"
-      },
+      "dimensions": {"width": 42, "height": 50, "unit": "cm"},
       "medium": "Ink on paper, robotic system, video documentation",
       "medium_zh": "纸本水墨、机器人系统、视频文献",
-      "description": "Mimicry is the first iteration of Chung's Drawing Operations Unit (D.O.U.G.) series, featuring custom-built robots that mirror the artist's hand movements in real-time. As the artist draws, the robots simultaneously execute parallel gestures, creating a mesmerizing dialogue between human intention and mechanical precision. The work won the Excellence Award at Japan's Media Arts Festival in 2016, recognizing it as a pioneering exploration of human-machine artistic collaboration. The resulting drawings capture both the fluidity of human touch and the exactitude of mechanical reproduction.",
-      "description_zh": "《模仿》是愫君《绘画操作单元》（D.O.U.G.）系列的第一个版本，由定制构建的机器人组成，这些机器人实时镜像艺术家的手部动作。当艺术家画画时，机器人同时执行平行的笔触，创造出人类意图与机械精确性之间迷人的对话。这件作品在2016年日本媒体艺术节上赢得了优秀奖，认可了它作为人机艺术协作的先驱性探索。生成的绘画捕捉了人类触感的流动性和机械复制的精确性。",
-      "artist_statement": "With Mimicry, I wanted to ask: can machines truly collaborate with humans, or are they merely executing predetermined instructions? By designing robots that respond to my gestures in real-time, I discovered that the answer is more nuanced—the machines became collaborators that could surprise me, creating marks I never anticipated. This work is about breaking down the hierarchy between human and machine.",
-      "artist_statement_zh": "通过《模仿》，我想问：机器能否与人类真正协作，还是它们仅仅在执行预定的指令？通过设计能够实时响应我的手势的机器人，我发现答案更加微妙——这些机器成为能够给我惊喜的协作者，创作出我从未预期的痕迹。这件作品是关于消解人类和机器之间的等级制度。",
-      "inspiration": "The desire to create a genuine dialogue with machines, inspired by observing natural patterns of synchronization and mimicry in nature",
-      "inspiration_zh": "创造与机器真正对话的欲望，灵感来自于观察自然界中的同步和模仿的模式",
-      "images": {
-        "high_res": "/assets/artworks/artwork-02-hires.jpg",
-        "thumbnail": "/assets/artworks/artwork-02-thumb.jpg"
-      },
-      "process": {
-        "sketches": [],
-        "iterations": [
-          {
-            "title": "Robot Design and Programming",
-            "title_zh": "机器人设计与编程",
-            "notes": "Developing algorithms to translate hand gestures into robot movements"
-          },
-          {
-            "title": "Live Collaboration Sessions",
-            "title_zh": "现场协作会议",
-            "notes": "Multiple sessions of artist drawing with robots responding in real-time"
-          }
-        ],
-        "documentation": "Video documentation shows the remarkable synchronization and occasional divergence between artist and machine"
-      },
-      "related_themes": ["同步", "镜像", "机器人艺术", "实时互动"],
-      "related_themes_en": ["Synchronization", "Mirroring", "Robotic Art", "Real-time Interaction"],
-      "cultural_references": ["robotics", "gesture recognition", "algorithmic translation", "collaborative systems"]
+      "description": "Mimicry is the first iteration of Chung's Drawing Operations Unit series, featuring custom-built robots that mirror the artist's hand movements in real-time.",
+      "description_zh": "《模仿》是愫君《绘画操作单元》系列的第一个版本，由定制构建的机器人组成，这些机器人实时镜像艺术家的手部动作。",
+      "artist_statement": "Can machines truly collaborate with humans in real-time?",
+      "artist_statement_zh": "机器能否与人类真正实时协作？",
+      "inspiration": "Observing natural patterns of synchronization in nature",
+      "inspiration_zh": "观察自然界中的同步模式",
+      "images": {"high_res": "/assets/artworks/artwork-02-hires.jpg", "thumbnail": "/assets/artworks/artwork-02-thumb.jpg"},
+      "process": {"sketches": [], "iterations": [], "documentation": "Video documentation"},
+      "related_themes": ["同步", "镜像", "机器人艺术"],
+      "related_themes_en": ["Synchronization", "Mirroring", "Robotic Art"],
+      "cultural_references": ["robotics", "gesture recognition"]
     },
     {
       "id": "artwork-03",
@@ -98,47 +54,20 @@
       "artist_zh": "愫君（Sougwen Chung）",
       "year": 2018,
       "year_note": "Part of the urban landscape collaboration series",
-      "dimensions": {
-        "width": 48,
-        "height": 48,
-        "unit": "inches"
-      },
+      "dimensions": {"width": 48, "height": 48, "unit": "inches"},
       "medium": "Acrylic on canvas, digital mapping, robotic drawing tools",
       "medium_zh": "丙烯酸颜料画布、数字映射、机器人绘图工具",
-      "description": "Omnia per Omnia (All in All) reimagines the landscape painting tradition as a collaboration between the artist, robots, and the dynamic urban environment of New York City. The title is Latin, suggesting universality and interconnection. Rather than a static view of nature, this series captures the flow of energy, movement, and data streaming through the urban landscape. The robots, trained on both the artist's gestures and real-time urban data, become co-creators that translate the city's invisible rhythms into visible marks. Each canvas in the series—Density Study, Velocity Study, Dwell Study, Direction Study—explores different dimensions of urban life, creating a multidimensional portrait of how humans, machines, and cities are inextricably intertwined.",
-      "description_zh": "《万物于万物》（All in All）将风景画传统重新想象为艺术家、机器人和纽约市动态城市环境之间的协作。拉丁文标题暗示了普遍性和相互联系。与其说是对自然的静态观点，不如说这一系列捕捉了能量、运动和数据流通过城市景观的流动。机器人接受了艺术家手势和实时城市数据的训练，成为将城市的无形节奏转化为可见痕迹的共同创作者。该系列中的每一幅画布——密度研究、速度研究、停留研究、方向研究——都探索了城市生活的不同维度，创造了一个多维肖像，展示了人类、机器和城市如何不可分割地相互交织。",
-      "artist_statement": "In Omnia per Omnia, I was interested in breaking the boundaries between landscape, data visualization, and performance. The city itself becomes a collaborator—its patterns of movement, its infrastructure, its invisible flows. By having robots translate these patterns into paint, I'm suggesting that the city, like any artwork, is a complex system of relationships. We are all part of this system, leaving traces that the machines help us see.",
-      "artist_statement_zh": "在《万物于万物》中，我对打破风景、数据可视化和表演之间的界限很感兴趣。城市本身成为一个协作者——它的运动模式、它的基础设施、它的无形流动。通过让机器人将这些模式转化为油漆，我暗示城市像任何艺术品一样，是一个复杂的关系系统。我们都是这个系统的一部分，留下机器帮助我们看到的痕迹。",
-      "inspiration": "The energy and complexity of New York City, combined with an interest in how data and movement can be translated into artistic language",
-      "inspiration_zh": "纽约市的能量和复杂性，结合对数据和运动如何转化为艺术语言的兴趣",
-      "images": {
-        "high_res": "/assets/artworks/artwork-03-hires.jpg",
-        "thumbnail": "/assets/artworks/artwork-03-thumb.jpg"
-      },
-      "process": {
-        "sketches": [],
-        "iterations": [
-          {
-            "title": "Urban Data Collection",
-            "title_zh": "城市数据收集",
-            "notes": "Mapping movement patterns, pedestrian flow, traffic data across NYC"
-          },
-          {
-            "title": "Algorithm Development",
-            "title_zh": "算法开发",
-            "notes": "Creating algorithms to translate urban metrics into robotic gestures"
-          },
-          {
-            "title": "Robotic Painting Process",
-            "title_zh": "机器人绘画过程",
-            "notes": "Multiple sessions with robots generating landscape paintings based on city data"
-          }
-        ],
-        "documentation": "Series includes four studies: Density Study, Velocity Study, Dwell Study, Direction Study—each exploring different aspects of urban life"
-      },
-      "related_themes": ["城市", "数据可视化", "流动", "人工智能风景"],
-      "related_themes_en": ["Urbanism", "Data Visualization", "Flow", "AI Landscape"],
-      "cultural_references": ["landscape painting", "data mapping", "urban studies", "systems thinking", "city as ecosystem"]
+      "description": "Omnia per Omnia reimagines the landscape painting tradition as a collaboration between the artist, robots, and the dynamic urban environment of New York City.",
+      "description_zh": "《万物于万物》将风景画传统重新想象为艺术家、机器人和纽约市动态城市环境之间的协作。",
+      "artist_statement": "The city itself becomes a collaborator through data and movement patterns.",
+      "artist_statement_zh": "城市本身通过数据和运动模式成为协作者。",
+      "inspiration": "The energy and complexity of New York City",
+      "inspiration_zh": "纽约市的能量和复杂性",
+      "images": {"high_res": "/assets/artworks/artwork-03-hires.jpg", "thumbnail": "/assets/artworks/artwork-03-thumb.jpg"},
+      "process": {"sketches": [], "iterations": [], "documentation": "Four studies: Density, Velocity, Dwell, Direction"},
+      "related_themes": ["城市", "数据可视化", "流动"],
+      "related_themes_en": ["Urbanism", "Data Visualization", "Flow"],
+      "cultural_references": ["landscape painting", "data mapping", "urban studies"]
     },
     {
       "id": "artwork-04",
@@ -148,47 +77,20 @@
       "artist_zh": "愫君（Sougwen Chung）",
       "year": 2020,
       "year_note": "Part of the Exquisite Corpus series exploring feedback loops",
-      "dimensions": {
-        "width": 56,
-        "height": 42,
-        "unit": "inches"
-      },
+      "dimensions": {"width": 56, "height": 42, "unit": "inches"},
       "medium": "Mixed media: ink, acrylic, digital prints, biofeedback data visualization",
       "medium_zh": "混合媒体：水墨、丙烯酸颜料、数字打印、生物反馈数据可视化",
-      "description": "A Sepal, A Petal, A Thorn is part of Chung's Exquisite Corpus series, which explores the feedback loops between human bodies, machines, and ecological systems. The work draws from the surrealist 'exquisite corpse' game, but reframes it as a meditation on how different entities—human gestures, robotic responses, and natural patterns—can be folded together in unexpected ways. The title references both botanical imagery and the potential for artistic creation to contain contrasts: beauty (petal), structure (sepal), and danger (thorn). The work incorporates biofeedback data, transforming the artist's physiological responses into visual marks. What emerges is a complex tapestry where the boundary between human creativity, machine intelligence, and natural growth becomes ambiguous and permeable.",
-      "description_zh": "《精美对话：花萼、花瓣、刺》是愫君《精美对话》系列的一部分，该系列探索人类身体、机器和生态系统之间的反馈循环。这件作品源于超现实主义的"精美对话"游戏，但将其重新框架化为对不同实体——人类手势、机器人反应和自然模式——如何以意想不到的方式被折叠在一起的沉思。标题既涉及植物意象，也涉及艺术创作如何能够包含对比：美（花瓣）、结构（花萼）和危险（刺）。这件作品融合了生物反馈数据，将艺术家的生理反应转化为视觉痕迹。随之而来的是一个复杂的织锦，人类创意、机器智能和自然生长之间的界线变得模糊而易透的。",
-      "artist_statement": "The Exquisite Corpus series came from wanting to explore what happens when we remove the distinction between observer and observed. By incorporating biofeedback—measuring my heart rate, breath, skin conductivity while I draw—I'm asking the machine to listen not just to my gestures but to my internal state. The result is an artwork that's literally marked by my emotions, fears, and vulnerabilities. It's a profound vulnerability, but also a profound honesty.",
-      "artist_statement_zh": "《精美对话》系列来自于想要探索当我们消除观察者和被观察者之间的区别时会发生什么。通过融合生物反馈——在我绘画时测量我的心率、呼吸、皮肤电导——我在要求机器不仅要听我的手势，还要听我的内部状态。结果是一件艺术作品，它在字面上被我的情感、恐惧和脆弱所标记。这是一种深刻的脆弱，但也是一种深刻的诚实。",
-      "inspiration": "Surrealist exquisite corpse games, biofeedback technology, ecological systems, and the desire to create art that honors human vulnerability in an age of technological mediation",
-      "inspiration_zh": "超现实主义精美对话游戏、生物反馈技术、生态系统和创作能够在技术调解时代尊重人类脆弱性的艺术的欲望",
-      "images": {
-        "high_res": "/assets/artworks/artwork-04-hires.jpg",
-        "thumbnail": "/assets/artworks/artwork-04-thumb.jpg"
-      },
-      "process": {
-        "sketches": [],
-        "iterations": [
-          {
-            "title": "Biofeedback Integration",
-            "title_zh": "生物反馈集成",
-            "notes": "Developing sensors and systems to capture physiological data during artistic creation"
-          },
-          {
-            "title": "Feedback Loop Testing",
-            "title_zh": "反馈循环测试",
-            "notes": "Multiple experimental sessions exploring how biofeedback translates to visual output"
-          },
-          {
-            "title": "Layering and Composition",
-            "title_zh": "分层与构图",
-            "notes": "Combining hand-drawn elements with machine-generated responses and biofeedback visualizations"
-          }
-        ],
-        "documentation": "The series includes detailed documentation of the biofeedback data alongside the resulting artworks"
-      },
-      "related_themes": ["生物反馈", "身体与技术", "生态学", "脆弱性"],
-      "related_themes_en": ["Biofeedback", "Body and Technology", "Ecology", "Vulnerability"],
-      "cultural_references": ["exquisite corpse", "surrealism", "biometric data", "embodied cognition", "posthuman aesthetics"]
+      "description": "A Sepal, A Petal, A Thorn explores feedback loops between human bodies, machines, and ecological systems through biofeedback data transformation.",
+      "description_zh": "《精美对话：花萼、花瓣、刺》通过生物反馈数据转换探索人类身体、机器和生态系统之间的反馈循环。",
+      "artist_statement": "What happens when we remove the distinction between observer and observed?",
+      "artist_statement_zh": "当我们消除观察者和被观察者之间的区别时会发生什么？",
+      "inspiration": "Surrealist exquisite corpse games and biofeedback technology",
+      "inspiration_zh": "超现实主义精美对话游戏和生物反馈技术",
+      "images": {"high_res": "/assets/artworks/artwork-04-hires.jpg", "thumbnail": "/assets/artworks/artwork-04-thumb.jpg"},
+      "process": {"sketches": [], "iterations": [], "documentation": "Biofeedback data documentation"},
+      "related_themes": ["生物反馈", "身体与技术", "生态学"],
+      "related_themes_en": ["Biofeedback", "Body and Technology", "Ecology"],
+      "cultural_references": ["exquisite corpse", "surrealism", "biometric data"]
     }
   ]
 }
