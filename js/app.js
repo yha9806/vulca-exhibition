@@ -87,6 +87,11 @@ async function loadData() {
     renderArtworkSelector();
     renderPersonaSelector();
     setupEventListeners();
+
+    // Initialize exhibition plan if available
+    if (typeof initExhibitionPlan !== 'undefined') {
+      initExhibitionPlan();
+    }
   } catch (error) {
     console.error('Error loading data:', error);
     showError('无法加载展览数据，请刷新页面重试。');
@@ -775,11 +780,6 @@ function renderRisks() {
 }
 
 // ==================== INITIALIZATION ====================
-
-// Initialize exhibition plan when page loads
-document.addEventListener('DOMContentLoaded', () => {
-  initExhibitionPlan();
-});
 
 // Export for use in other modules if needed
 if (typeof module !== 'undefined' && module.exports) {
