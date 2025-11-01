@@ -29,6 +29,9 @@
   <!-- ==================== STYLESHEETS ==================== -->
   <link rel="stylesheet" href="/styles/main.css">
 
+  <!-- ==================== CHART LIBRARY ==================== -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
   <!-- ==================== PRECONNECT ==================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,10 +194,21 @@
               ">×</button>
             </div>
 
-            <!-- Bilingual Critique -->
-            <div id="critiqueContent" style="line-height: 1.8;">
-              <p id="critiqueEnglish" style="margin-bottom: var(--space-md); color: var(--color-text-primary);"></p>
-              <p id="critiqueChinese" style="margin-bottom: 0; color: var(--color-text-primary);"></p>
+            <!-- Critique Content with RPAIT Chart -->
+            <div style="display: grid; grid-template-columns: 1fr 300px; gap: var(--space-lg); align-items: start;">
+              <!-- Bilingual Critique -->
+              <div id="critiqueContent" style="line-height: 1.8;">
+                <p id="critiqueEnglish" style="margin-bottom: var(--space-md); color: var(--color-text-primary);"></p>
+                <p id="critiqueChinese" style="margin-bottom: 0; color: var(--color-text-primary);"></p>
+              </div>
+
+              <!-- RPAIT Visualization -->
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <canvas id="rpaitChart" style="max-width: 280px; max-height: 280px;"></canvas>
+                <p style="font-size: var(--size-caption); color: var(--color-text-secondary); margin-top: var(--space-sm); text-align: center;">
+                  评论维度<br><span style="font-size: 10px;">R P A I T</span>
+                </p>
+              </div>
             </div>
           </div>
         </div>

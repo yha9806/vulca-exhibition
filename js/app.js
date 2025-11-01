@@ -349,6 +349,9 @@ function displayCritique(critique) {
   document.getElementById('critiqueEnglish').textContent = critique.critique;
   document.getElementById('critiqueChinese').textContent = critique.critique_zh;
 
+  // Draw RPAIT chart
+  drawRpaitChart(persona);
+
   // Show critique display
   const display = document.getElementById('critiqueDisplay');
   if (display) {
@@ -367,6 +370,88 @@ function hideCritique() {
   if (display) {
     display.style.display = 'none';
   }
+}
+
+// ==================== RPAIT VISUALIZATION ====================
+
+let rpaitChartInstance = null;
+
+function drawRpaitChart(persona) {
+  const canvas = document.getElementById('rpaitChart');
+  if (!canvas || !persona || !persona.rpait_weights) {
+    console.warn('Canvas or persona data not available for RPAIT chart');
+    return;
+  }
+
+  // Destroy existing chart if it exists
+  if (rpaitChartInstance) {
+    rpaitChartInstance.destroy();
+  }
+
+  const weights = persona.rpait_weights;
+  const data = {
+    labels: ['表现 R', '哲学 P', '美学 A', '诠释 I', '技术 T'],
+    datasets: [{
+      label: persona.name_zh,
+      data: [
+        weights.representation || 0,
+        weights.philosophy || 0,
+        weights.aesthetics || 0,
+        weights.interpretation || 0,
+        weights.technique || 0
+      ],
+      borderColor: 'var(--color-accent, #D4A373)',
+      backgroundColor: 'rgba(212, 163, 115, 0.1)',
+      borderWidth: 2,
+      pointRadius: 4,
+      pointBackgroundColor: 'var(--color-accent, #D4A373)',
+      pointBorderColor: '#fff',
+      pointBorderWidth: 2
+    }]
+  };
+
+  const ctx = canvas.getContext('2d');
+  rpaitChartInstance = new Chart(ctx, {
+    type: 'radar',
+    data: data,
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          display: false
+        },
+        tooltip: {
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+          padding: 8,
+          titleFont: { size: 12 },
+          bodyFont: { size: 11 },
+          borderColor: 'var(--color-accent, #D4A373)',
+          borderWidth: 1
+        }
+      },
+      scales: {
+        r: {
+          beginAtZero: true,
+          max: 10,
+          ticks: {
+            stepSize: 2,
+            font: { size: 10 },
+            color: 'var(--color-text-secondary, #999)'
+          },
+          grid: {
+            color: 'var(--color-border, #e0e0e0)'
+          },
+          pointLabels: {
+            font: { size: 11 },
+            color: 'var(--color-text-primary, #333)'
+          }
+        }
+      }
+    }
+  });
+
+  console.log('RPAIT chart drawn for:', persona.name_zh);
 }
 
 // ==================== UTILITIES ====================
