@@ -1,0 +1,108 @@
+{
+  "artworks": [
+    {
+      "id": "artwork-01",
+      "title": "[待确定的艺术作品 #1]",
+      "artist": "[艺术家名字待确定]",
+      "year": 2024,
+      "dimensions": {
+        "width": 0,
+        "height": 0,
+        "unit": "cm"
+      },
+      "medium": "[媒介待确定]",
+      "description": "这是一件待确定的艺术作品。一旦您提供具体的艺术作品选择，我们将填入完整的信息。",
+      "artist_statement": "[艺术家阐述待确定]",
+      "inspiration": "[创作灵感待确定]",
+      "images": {
+        "high_res": "/assets/artworks/artwork-01-hires.jpg",
+        "thumbnail": "/assets/artworks/artwork-01-thumb.jpg"
+      },
+      "process": {
+        "sketches": [],
+        "iterations": [],
+        "documentation": "过程文档待确定"
+      },
+      "related_themes": ["潮汐", "负形", "多维解读"],
+      "cultural_references": ["待确定"]
+    },
+    {
+      "id": "artwork-02",
+      "title": "[待确定的艺术作品 #2]",
+      "artist": "[艺术家名字待确定]",
+      "year": 2024,
+      "dimensions": {
+        "width": 0,
+        "height": 0,
+        "unit": "cm"
+      },
+      "medium": "[媒介待确定]",
+      "description": "这是第二件待确定的艺术作品。",
+      "artist_statement": "[艺术家阐述待确定]",
+      "inspiration": "[创作灵感待确定]",
+      "images": {
+        "high_res": "/assets/artworks/artwork-02-hires.jpg",
+        "thumbnail": "/assets/artworks/artwork-02-thumb.jpg"
+      },
+      "process": {
+        "sketches": [],
+        "iterations": [],
+        "documentation": "过程文档待确定"
+      },
+      "related_themes": ["潮汐", "负形", "多维解读"],
+      "cultural_references": ["待确定"]
+    },
+    {
+      "id": "artwork-03",
+      "title": "[待确定的艺术作品 #3]",
+      "artist": "[艺术家名字待确定]",
+      "year": 2024,
+      "dimensions": {
+        "width": 0,
+        "height": 0,
+        "unit": "cm"
+      },
+      "medium": "[媒介待确定]",
+      "description": "这是第三件待确定的艺术作品。",
+      "artist_statement": "[艺术家阐述待确定]",
+      "inspiration": "[创作灵感待确定]",
+      "images": {
+        "high_res": "/assets/artworks/artwork-03-hires.jpg",
+        "thumbnail": "/assets/artworks/artwork-03-thumb.jpg"
+      },
+      "process": {
+        "sketches": [],
+        "iterations": [],
+        "documentation": "过程文档待确定"
+      },
+      "related_themes": ["潮汐", "负形", "多维解读"],
+      "cultural_references": ["待确定"]
+    },
+    {
+      "id": "artwork-04",
+      "title": "[待确定的艺术作品 #4]",
+      "artist": "[艺术家名字待确定]",
+      "year": 2024,
+      "dimensions": {
+        "width": 0,
+        "height": 0,
+        "unit": "cm"
+      },
+      "medium": "[媒介待确定]",
+      "description": "这是第四件待确定的艺术作品。",
+      "artist_statement": "[艺术家阐述待确定]",
+      "inspiration": "[创作灵感待确定]",
+      "images": {
+        "high_res": "/assets/artworks/artwork-04-hires.jpg",
+        "thumbnail": "/assets/artworks/artwork-04-thumb.jpg"
+      },
+      "process": {
+        "sketches": [],
+        "iterations": [],
+        "documentation": "过程文档待确定"
+      },
+      "related_themes": ["潮汐", "负形", "多维解读"],
+      "cultural_references": ["待确定"]
+    }
+  ]
+}

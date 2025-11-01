@@ -1,228 +1,319 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VULCA - Cultural Understanding Framework for MLLMs</title>
-    <link rel="stylesheet" href="styles.css">
+  <!-- ==================== META TAGS ==================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="潮汐的负形 - VULCA艺术装置交互展览平台。探索4件精选艺术作品与6位文化评论家的视角碰撞。">
+  <meta name="keywords" content="艺术展览, AI评论生成, 文化批评, 互动平台">
+  <meta name="author" content="VULCA">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vulcaart.art">
+  <meta property="og:title" content="潮汐的负形 | vulcaart.art">
+  <meta property="og:description" content="交互式艺术展览平台 - 体验AI驱动的多角度艺术评论">
+  <meta property="og:image" content="https://vulcaart.art/assets/og-image.jpg">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="潮汐的负形 | vulcaart.art">
+  <meta name="twitter:description" content="交互式艺术展览平台">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="alternate icon" href="/assets/favicon.ico">
+
+  <!-- ==================== STYLESHEETS ==================== -->
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <!-- ==================== PRECONNECT ==================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- ==================== TITLE ==================== -->
+  <title>潮汐的负形 | vulcaart.art</title>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">VULCA</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#personas">Personas</a></li>
-                <li><a href="#framework">Framework</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+  <!-- ==================== SKIP LINK ==================== -->
+  <a href="#main-content" class="skip-to-main">跳转到主要内容</a>
+
+  <!-- ==================== HEADER & NAVIGATION ==================== -->
+  <header>
+    <nav class="container flex flex-between">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <a href="/" class="brand-logo" title="回到首页">
+          <span class="brand-text">vulcaart</span>
+          <span class="brand-subtitle">潮汐的负形</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <ul class="nav-desktop flex flex-gap-lg">
+        <li><a href="#exhibition">展览</a></li>
+        <li><a href="#personas">评论家</a></li>
+        <li><a href="#process">创作过程</a></li>
+        <li><a href="#about">关于</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button class="hamburger" aria-label="打开菜单" id="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>VULCA</h1>
-            <p class="subtitle">A Comprehensive Evaluation Framework for Assessing Multimodal Large Language Models' Cultural Understanding through Chinese Art Critique</p>
-            <p class="tagline">Bridging AI and Cultural Aesthetics</p>
-            <div class="hero-buttons">
-                <a href="#about" class="btn btn-primary">Learn More</a>
-                <a href="https://github.com/yha9806/VULCA-EMNLP2025" class="btn btn-secondary">GitHub</a>
-            </div>
-        </div>
-        <div class="hero-background">
-            <svg viewBox="0 0 400 400" class="decorative-art">
-                <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
-                <path d="M100 200 Q200 100 300 200" fill="none" stroke="currentColor" stroke-width="2" opacity="0.2"/>
-                <circle cx="200" cy="200" r="100" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
-            </svg>
-        </div>
+    <!-- Mobile Navigation -->
+    <nav class="nav-mobile" id="mobile-menu" style="display: none;">
+      <ul class="flex flex-column flex-gap-md p-lg">
+        <li><a href="#exhibition" class="nav-link">展览</a></li>
+        <li><a href="#personas" class="nav-link">评论家</a></li>
+        <li><a href="#process" class="nav-link">创作过程</a></li>
+        <li><a href="#about" class="nav-link">关于</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main id="main-content">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <h1>潮汐的负形</h1>
+      <p>
+        一场关于艺术评论的视角之旅。<br>
+        通过不同文化评论家的眼睛，探索同一件作品的多维解读。
+      </p>
+      <a href="#exhibition" class="btn btn-primary btn-lg">进入展览</a>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About VULCA</h2>
-            <div class="about-content">
-                <p>
-                    VULCA is an innovative evaluation framework designed to assess how well Multimodal Large Language Models (MLLMs) understand and appreciate cultural nuances in visual art, particularly Chinese art traditions.
-                </p>
-                <p>
-                    By incorporating perspectives from diverse cultural critics—both historical and contemporary—VULCA evaluates MLLMs' ability to provide culturally-informed and aesthetically sophisticated art critiques.
-                </p>
-                <div class="features">
-                    <div class="feature">
-                        <h3>🎨 Cultural Perspectives</h3>
-                        <p>8 unique cultural critic personas representing different traditions and viewpoints</p>
-                    </div>
-                    <div class="feature">
-                        <h3>🔬 Rigorous Evaluation</h3>
-                        <p>Comprehensive framework for assessing MLLM cultural understanding</p>
-                    </div>
-                    <div class="feature">
-                        <h3>📊 Data-Driven Analysis</h3>
-                        <p>Knowledge base system with semantic analysis and structured evaluation</p>
-                    </div>
-                    <div class="feature">
-                        <h3>🌍 Multi-Cultural</h3>
-                        <p>Bridging Eastern and Western art traditions and aesthetic philosophies</p>
-                    </div>
-                </div>
-            </div>
+    <!-- WHITESPACE -->
+    <div class="section-spacer"></div>
+
+    <!-- EXHIBITION SECTION -->
+    <section id="exhibition" class="container breathing-room">
+      <h2 class="heading-line">核心体验</h2>
+
+      <div class="grid grid-2 gap-lg mt-lg">
+        <!-- Artwork Gallery Preview -->
+        <div class="card card-lg">
+          <h3>4件精选作品</h3>
+          <p class="mt-md">
+            精心挑选的艺术作品，每件都承载着独特的文化意蕴和视觉语言。
+            高分辨率呈现，邀请您细致地观看和思考。
+          </p>
+          <div class="mt-lg">
+            <span class="badge badge-primary">视觉探索</span>
+          </div>
         </div>
+
+        <!-- Critic Personas Preview -->
+        <div class="card card-lg">
+          <h3>6位文化评论家</h3>
+          <p class="mt-md">
+            来自不同文化背景和历史时期的评论家视角。
+            每位评论家都有独特的分析维度和审美标准。
+          </p>
+          <div class="mt-lg">
+            <span class="badge badge-primary">多元视角</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Critique System -->
+      <div class="card card-lg mt-lg">
+        <h3>AI驱动的评论生成</h3>
+        <p class="mt-md">
+          选择一件作品，选择一位评论家，AI将生成这位评论家对该作品的独特评论。
+          体验不同视角如何赋予同一件作品全新的意义。
+        </p>
+        <div class="mt-lg flex flex-gap-md">
+          <span class="badge badge-primary">AI技术</span>
+          <span class="badge badge-primary">多维分析</span>
+          <span class="badge badge-primary">实时生成</span>
+        </div>
+      </div>
     </section>
 
-    <!-- Personas Section -->
-    <section id="personas" class="personas">
-        <div class="container">
-            <h2>Cultural Critic Personas</h2>
-            <p class="section-subtitle">Eight diverse perspectives on art appreciation and critique</p>
+    <!-- WHITESPACE -->
+    <div class="section-spacer"></div>
 
-            <div class="personas-grid">
-                <div class="persona-card">
-                    <h3>苏轼 (Su Shi)</h3>
-                    <p class="era">Northern Song Dynasty, 1037–1101</p>
-                    <p class="description">Literati painter and poet perspective, emphasizing inner spiritual expression over technical imitation</p>
-                </div>
+    <!-- PERSONAS SECTION -->
+    <section id="personas" class="container breathing-room">
+      <h2 class="heading-line">6位文化评论家</h2>
+      <p class="max-w-prose mx-auto text-center mt-md mb-lg">
+        从北宋文人到当代AI伦理学者，这些评论家代表了不同文化传统和时代的审美标准。
+      </p>
 
-                <div class="persona-card">
-                    <h3>郭熙 (Guo Xi)</h3>
-                    <p class="era">Northern Song Dynasty, ~1020–1090</p>
-                    <p class="description">Imperial court landscape painter analysis, focused on grand compositions and cosmic harmony</p>
-                </div>
-
-                <div class="persona-card">
-                    <h3>John Ruskin</h3>
-                    <p class="era">Victorian Era, 1819–1900</p>
-                    <p class="description">Western art critic with moral aesthetic views, connecting art to ethics and nature appreciation</p>
-                </div>
-
-                <div class="persona-card">
-                    <h3>岡倉天心 (Okakura Kakuzo)</h3>
-                    <p class="era">Meiji Japan, 1863–1913</p>
-                    <p class="description">Pan-Asian art philosophy, bridging Eastern aesthetic traditions and Western art concepts</p>
-                </div>
-
-                <div class="persona-card">
-                    <h3>Dr. Aris Thorne</h3>
-                    <p class="era">Contemporary Digital Artist</p>
-                    <p class="description">Future-oriented digital art criticism, exploring emerging technologies and new media aesthetics</p>
-                </div>
-
-                <div class="persona-card">
-                    <h3>Mama Zola</h3>
-                    <p class="era">Contemporary Community Artist</p>
-                    <p class="description">African community-centered art interpretation, emphasizing cultural identity and collective experience</p>
-                </div>
-
-                <div class="persona-card">
-                    <h3>Professor Elena Petrova</h3>
-                    <p class="era">Russian Formalist Tradition</p>
-                    <p class="description">Russian Formalist structural analysis, examining artistic form and compositional elements</p>
-                </div>
-
-                <div class="persona-card">
-                    <h3>Brother Thomas</h3>
-                    <p class="era">Medieval Theology</p>
-                    <p class="description">Byzantine theological art perspective, connecting visual beauty to spiritual transcendence</p>
-                </div>
-            </div>
+      <div class="grid grid-auto gap-lg mt-lg">
+        <!-- Personas will be rendered here by JavaScript -->
+        <div class="card card-lg text-center">
+          <div class="p-lg">
+            <div style="width: 120px; height: 120px; background-color: #F0EEE8; margin: 0 auto var(--space-md); border-radius: var(--border-radius-lg);"></div>
+            <h3>评论家加载中...</h3>
+            <p class="mt-md text-secondary">等待数据加载</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Framework Section -->
-    <section id="framework" class="framework">
-        <div class="container">
-            <h2>Framework Overview</h2>
-            <div class="framework-content">
-                <div class="framework-step">
-                    <div class="step-number">1</div>
-                    <h3>Image Analysis</h3>
-                    <p>Multi-scale preprocessing for comprehensive visual understanding</p>
-                </div>
-                <div class="framework-step">
-                    <div class="step-number">2</div>
-                    <h3>MLLM Evaluation</h3>
-                    <p>Generate critiques using MLLMs with cultural persona prompting</p>
-                </div>
-                <div class="framework-step">
-                    <div class="step-number">3</div>
-                    <h3>Semantic Analysis</h3>
-                    <p>Knowledge base system for structured evaluation and analysis</p>
-                </div>
-                <div class="framework-step">
-                    <div class="step-number">4</div>
-                    <h3>Cultural Assessment</h3>
-                    <p>Evaluate cultural understanding and aesthetic sophistication</p>
-                </div>
-            </div>
+    <!-- WHITESPACE -->
+    <div class="section-spacer"></div>
+
+    <!-- PROCESS DOCUMENTATION SECTION -->
+    <section id="process" class="container breathing-room">
+      <h2 class="heading-line">创作过程 · 负形关注</h2>
+      <p class="max-w-prose mx-auto text-center mt-md mb-lg">
+        "负形"不仅是艺术的主题，也是我们呈现方式的原则。
+        通过展示创作过程、设计决策和概念演进，我们邀请您看见通常隐藏的部分。
+      </p>
+
+      <div class="grid grid-2 gap-lg mt-lg">
+        <!-- Concept Development -->
+        <div class="card card-lg">
+          <h3>概念发展</h3>
+          <p class="mt-md text-secondary">
+            从初始想法到完整框架的演变。
+            如何将"潮汐的负形"这一主题转化为互动体验。
+          </p>
         </div>
+
+        <!-- Design Iterations -->
+        <div class="card card-lg">
+          <h3>设计迭代</h3>
+          <p class="mt-md text-secondary">
+            界面设计的多轮推敲，从草稿到最终方案。
+            每个决策背后的思考过程。
+          </p>
+        </div>
+
+        <!-- Research -->
+        <div class="card card-lg">
+          <h3>研究阶段</h3>
+          <p class="mt-md text-secondary">
+            6位评论家的选择过程，艺术作品的策展逻辑。
+            文化背景和审美标准的研究。
+          </p>
+        </div>
+
+        <!-- Technical Implementation -->
+        <div class="card card-lg">
+          <h3>技术实现</h3>
+          <p class="mt-md text-secondary">
+            从架构设计到功能开发的技术选择。
+            如何整合AI API与用户体验。
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- Technical Section -->
-    <section id="technical" class="technical">
-        <div class="container">
-            <h2>Technical Specifications</h2>
-            <div class="technical-grid">
-                <div class="tech-item">
-                    <h3>Model</h3>
-                    <p><strong>Qwen2.5-VL-7B-Instruct</strong></p>
-                    <p>State-of-the-art multimodal large language model</p>
-                </div>
-                <div class="tech-item">
-                    <h3>Requirements</h3>
-                    <ul>
-                        <li>Python 3.8+</li>
-                        <li>CUDA 11.8+</li>
-                        <li>16GB+ GPU memory</li>
-                    </ul>
-                </div>
-                <div class="tech-item">
-                    <h3>Key Dependencies</h3>
-                    <ul>
-                        <li>PyTorch 2.0+</li>
-                        <li>Transformers 4.35+</li>
-                        <li>vLLM 0.2+</li>
-                    </ul>
-                </div>
-                <div class="tech-item">
-                    <h3>Processing</h3>
-                    <ul>
-                        <li>Multi-scale image analysis</li>
-                        <li>Saliency detection</li>
-                        <li>Semantic segmentation</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <!-- WHITESPACE -->
+    <div class="section-spacer"></div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="container breathing-room">
+      <h2 class="heading-line">关于这个项目</h2>
+
+      <div class="max-w-prose mx-auto mt-lg">
+        <p class="mb-md">
+          vulcaart.art 是 VULCA（视觉理解与语言的文化自适应）项目的数字展览平台。
+          这个项目探索AI系统如何理解和评价艺术作品，特别是从多元文化视角出发。
+        </p>
+
+        <p class="mb-md">
+          <strong>"潮汐的负形"</strong> 作为主题，强调：
+        </p>
+
+        <ul class="mb-md">
+          <li class="mb-sm">• <strong>潮汐性</strong> — 艺术评论随着不同视角的切换而变化，如同潮汐的涨落</li>
+          <li class="mb-sm">• <strong>负形</strong> — 关注过程、草稿和迭代，而不仅是最终成果</li>
+          <li class="mb-sm">• <strong>多维性</strong> — 同一件作品在不同评论家眼中有完全不同的意义</li>
+        </ul>
+
+        <p class="mb-md">
+          设计上，我们以 Sougwen Chung 的美学为灵感 — 极简主义、大量留白、有机流动的交互。
+          这个平台本身也是一件艺术作品：用代码和设计呈现文化理解的多重维度。
+        </p>
+
+        <p>
+          <em>
+            通过AI、艺术和文化的交集，探索我们如何看待和理解彼此的创意表达。
+          </em>
+        </p>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Get Involved</h2>
-            <p>Interested in VULCA? Check out the GitHub repository and join the research community.</p>
-            <div class="contact-links">
-                <a href="https://github.com/yha9806/VULCA-EMNLP2025" class="btn btn-primary">
-                    🔗 GitHub Repository
-                </a>
-                <a href="https://emnlp2025.aclanthology.org/" class="btn btn-secondary">
-                    📄 EMNLP 2025
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- WHITESPACE -->
+    <div class="section-spacer"></div>
+  </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 VULCA Project. Evaluating Cultural Understanding in Multimodal LLMs.</p>
-            <p>Presented at EMNLP 2025, Suzhou, China</p>
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <div class="grid grid-auto gap-lg mb-lg">
+        <!-- About -->
+        <div>
+          <h4 class="mb-md">关于</h4>
+          <p class="text-secondary">
+            VULCA 艺术展览平台<br>
+            潮汐的负形
+          </p>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <!-- Links -->
+        <div>
+          <h4 class="mb-md">链接</h4>
+          <ul class="flex flex-column flex-gap-sm">
+            <li><a href="#exhibition">展览</a></li>
+            <li><a href="#personas">评论家</a></li>
+            <li><a href="#process">创作过程</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="mb-md">联系</h4>
+          <p class="text-secondary">
+            <a href="mailto:info@vulcaart.art">info@vulcaart.art</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="divider-poetic"></div>
+      <div class="flex flex-between text-secondary py-md">
+        <p>&copy; 2025 VULCA. 保留所有权利。</p>
+        <p>设计灵感：Sougwen Chung | 开发：Claude Code</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="/js/app.js" defer></script>
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.style.display === 'flex';
+        mobileMenu.style.display = isOpen ? 'none' : 'flex';
+        menuBtn.classList.toggle('active');
+      });
+    }
+
+    // Close menu when clicking on a link
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.style.display = 'none';
+        if (menuBtn) menuBtn.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>

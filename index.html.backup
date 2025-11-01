@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- ==================== META TAGS ==================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="潮汐的负形 - VULCA艺术装置交互展览平台。探索4件精选艺术作品与6位文化评论家的视角碰撞。">
+  <meta name="keywords" content="艺术展览, AI评论生成, 文化批评, 互动平台">
+  <meta name="author" content="VULCA">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vulcaart.art">
+  <meta property="og:title" content="潮汐的负形 | vulcaart.art">
+  <meta property="og:description" content="交互式艺术展览平台 - 体验AI驱动的多角度艺术评论">
+  <meta property="og:image" content="https://vulcaart.art/assets/og-image.jpg">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="潮汐的负形 | vulcaart.art">
+  <meta name="twitter:description" content="交互式艺术展览平台">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="alternate icon" href="/assets/favicon.ico">
+
+  <!-- ==================== STYLESHEETS ==================== -->
+  <link rel="stylesheet" href="/styles/main.css">
+
+  <!-- ==================== PRECONNECT ==================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- ==================== TITLE ==================== -->
+  <title>潮汐的负形 | vulcaart.art</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">VULCA</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#personas">Personas</a></li>
+                <li><a href="#framework">Framework</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>VULCA</h1>
+            <p class="subtitle">A Comprehensive Evaluation Framework for Assessing Multimodal Large Language Models' Cultural Understanding through Chinese Art Critique</p>
+            <p class="tagline">Bridging AI and Cultural Aesthetics</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">Learn More</a>
+                <a href="https://github.com/yha9806/VULCA-EMNLP2025" class="btn btn-secondary">GitHub</a>
+            </div>
+        </div>
+        <div class="hero-background">
+            <svg viewBox="0 0 400 400" class="decorative-art">
+                <circle cx="200" cy="200" r="150" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                <path d="M100 200 Q200 100 300 200" fill="none" stroke="currentColor" stroke-width="2" opacity="0.2"/>
+                <circle cx="200" cy="200" r="100" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About VULCA</h2>
+            <div class="about-content">
+                <p>
+                    VULCA is an innovative evaluation framework designed to assess how well Multimodal Large Language Models (MLLMs) understand and appreciate cultural nuances in visual art, particularly Chinese art traditions.
+                </p>
+                <p>
+                    By incorporating perspectives from diverse cultural critics—both historical and contemporary—VULCA evaluates MLLMs' ability to provide culturally-informed and aesthetically sophisticated art critiques.
+                </p>
+                <div class="features">
+                    <div class="feature">
+                        <h3>🎨 Cultural Perspectives</h3>
+                        <p>8 unique cultural critic personas representing different traditions and viewpoints</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🔬 Rigorous Evaluation</h3>
+                        <p>Comprehensive framework for assessing MLLM cultural understanding</p>
+                    </div>
+                    <div class="feature">
+                        <h3>📊 Data-Driven Analysis</h3>
+                        <p>Knowledge base system with semantic analysis and structured evaluation</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🌍 Multi-Cultural</h3>
+                        <p>Bridging Eastern and Western art traditions and aesthetic philosophies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personas Section -->
+    <section id="personas" class="personas">
+        <div class="container">
+            <h2>Cultural Critic Personas</h2>
+            <p class="section-subtitle">Eight diverse perspectives on art appreciation and critique</p>
+
+            <div class="personas-grid">
+                <div class="persona-card">
+                    <h3>苏轼 (Su Shi)</h3>
+                    <p class="era">Northern Song Dynasty, 1037–1101</p>
+                    <p class="description">Literati painter and poet perspective, emphasizing inner spiritual expression over technical imitation</p>
+                </div>
+
+                <div class="persona-card">
+                    <h3>郭熙 (Guo Xi)</h3>
+                    <p class="era">Northern Song Dynasty, ~1020–1090</p>
+                    <p class="description">Imperial court landscape painter analysis, focused on grand compositions and cosmic harmony</p>
+                </div>
+
+                <div class="persona-card">
+                    <h3>John Ruskin</h3>
+                    <p class="era">Victorian Era, 1819–1900</p>
+                    <p class="description">Western art critic with moral aesthetic views, connecting art to ethics and nature appreciation</p>
+                </div>
+
+                <div class="persona-card">
+                    <h3>岡倉天心 (Okakura Kakuzo)</h3>
+                    <p class="era">Meiji Japan, 1863–1913</p>
+                    <p class="description">Pan-Asian art philosophy, bridging Eastern aesthetic traditions and Western art concepts</p>
+                </div>
+
+                <div class="persona-card">
+                    <h3>Dr. Aris Thorne</h3>
+                    <p class="era">Contemporary Digital Artist</p>
+                    <p class="description">Future-oriented digital art criticism, exploring emerging technologies and new media aesthetics</p>
+                </div>
+
+                <div class="persona-card">
+                    <h3>Mama Zola</h3>
+                    <p class="era">Contemporary Community Artist</p>
+                    <p class="description">African community-centered art interpretation, emphasizing cultural identity and collective experience</p>
+                </div>
+
+                <div class="persona-card">
+                    <h3>Professor Elena Petrova</h3>
+                    <p class="era">Russian Formalist Tradition</p>
+                    <p class="description">Russian Formalist structural analysis, examining artistic form and compositional elements</p>
+                </div>
+
+                <div class="persona-card">
+                    <h3>Brother Thomas</h3>
+                    <p class="era">Medieval Theology</p>
+                    <p class="description">Byzantine theological art perspective, connecting visual beauty to spiritual transcendence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Section -->
+    <section id="framework" class="framework">
+        <div class="container">
+            <h2>Framework Overview</h2>
+            <div class="framework-content">
+                <div class="framework-step">
+                    <div class="step-number">1</div>
+                    <h3>Image Analysis</h3>
+                    <p>Multi-scale preprocessing for comprehensive visual understanding</p>
+                </div>
+                <div class="framework-step">
+                    <div class="step-number">2</div>
+                    <h3>MLLM Evaluation</h3>
+                    <p>Generate critiques using MLLMs with cultural persona prompting</p>
+                </div>
+                <div class="framework-step">
+                    <div class="step-number">3</div>
+                    <h3>Semantic Analysis</h3>
+                    <p>Knowledge base system for structured evaluation and analysis</p>
+                </div>
+                <div class="framework-step">
+                    <div class="step-number">4</div>
+                    <h3>Cultural Assessment</h3>
+                    <p>Evaluate cultural understanding and aesthetic sophistication</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Section -->
+    <section id="technical" class="technical">
+        <div class="container">
+            <h2>Technical Specifications</h2>
+            <div class="technical-grid">
+                <div class="tech-item">
+                    <h3>Model</h3>
+                    <p><strong>Qwen2.5-VL-7B-Instruct</strong></p>
+                    <p>State-of-the-art multimodal large language model</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li>Python 3.8+</li>
+                        <li>CUDA 11.8+</li>
+                        <li>16GB+ GPU memory</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <h3>Key Dependencies</h3>
+                    <ul>
+                        <li>PyTorch 2.0+</li>
+                        <li>Transformers 4.35+</li>
+                        <li>vLLM 0.2+</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <h3>Processing</h3>
+                    <ul>
+                        <li>Multi-scale image analysis</li>
+                        <li>Saliency detection</li>
+                        <li>Semantic segmentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get Involved</h2>
+            <p>Interested in VULCA? Check out the GitHub repository and join the research community.</p>
+            <div class="contact-links">
+                <a href="https://github.com/yha9806/VULCA-EMNLP2025" class="btn btn-primary">
+                    🔗 GitHub Repository
+                </a>
+                <a href="https://emnlp2025.aclanthology.org/" class="btn btn-secondary">
+                    📄 EMNLP 2025
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 VULCA Project. Evaluating Cultural Understanding in Multimodal LLMs.</p>
+            <p>Presented at EMNLP 2025, Suzhou, China</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

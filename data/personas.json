@@ -1,0 +1,112 @@
+{
+  "personas": [
+    {
+      "id": "su-shi",
+      "name_zh": "苏轼",
+      "name_en": "Su Shi",
+      "era": "北宋文人(1037-1101)",
+      "role": "文人画家与哲学家",
+      "biography": "北宋著名文人画家、书法家和哲学家。强调个人表达和文人修养在艺术创作中的重要性。他的书论、画论蕴含深厚的哲学思想，影响了中国艺术发展数百年。",
+      "rpait_weights": {
+        "representation": 7,
+        "philosophy": 9,
+        "aesthetics": 8,
+        "interpretation": 8,
+        "technique": 6
+      },
+      "analytical_framework": "文人美学、个人修养、哲学思辨",
+      "sample_critique": "此作品展现了创作者对内心精神境界的追求，远超表面的技巧呈现。正如文人画所强调的'外师造化，中得心源'，真正的艺术价值在于创作者的思想修为。",
+      "key_concepts": ["文人精神", "意境", "书法性", "禅意"]
+    },
+    {
+      "id": "guo-xi",
+      "name_zh": "郭熙",
+      "name_en": "Guo Xi",
+      "era": "北宋山水画家(1020-1100)",
+      "role": "杰出的山水画师",
+      "biography": "北宋著名山水画家，以独特的三距法（高远、深远、平远）理论而闻名。他的《林泉高致》是中国山水画论的重要经典，强调对自然的深刻观察和理解。",
+      "rpait_weights": {
+        "representation": 8,
+        "philosophy": 7,
+        "aesthetics": 9,
+        "interpretation": 7,
+        "technique": 8
+      },
+      "analytical_framework": "山水理论、空间构成、自然观察",
+      "sample_critique": "作品在空间构成上体现了深远的视觉思考。通过对物象关系的精妙安排，创作者建立了一个完整的视觉宇宙，邀请观者进入一场精神的山水之旅。",
+      "key_concepts": ["三距法", "林泉", "空间感", "自然和谐"]
+    },
+    {
+      "id": "john-ruskin",
+      "name_zh": "约翰·罗斯金",
+      "name_en": "John Ruskin",
+      "era": "维多利亚时期评论家(1819-1900)",
+      "role": "艺术评论家与社会思想家",
+      "biography": "19世纪英国最具影响力的艺术评论家和社会评论家。强调艺术的道德价值和对人类精神的提升作用。他的《现代画家》等著作奠定了西方现代艺术批评的基础。",
+      "rpait_weights": {
+        "representation": 6,
+        "philosophy": 8,
+        "aesthetics": 8,
+        "interpretation": 9,
+        "technique": 5
+      },
+      "analytical_framework": "道德美学、精神价值、社会意义",
+      "sample_critique": "这部作品的核心价值不在技法，而在其所传达的精神境界。艺术最高的使命是提升人类的道德和审美意识，这件作品正是在这一使命上有所贡献。",
+      "key_concepts": ["精神升华", "道德美学", "自然观照", "理想美"]
+    },
+    {
+      "id": "mama-zola",
+      "name_zh": "佐拉妈妈",
+      "name_en": "Mama Zola",
+      "era": "西非传统文化(当代)",
+      "role": "社区文化传承者",
+      "biography": "代表西非共同体精神和传统智慧。强调艺术作为社区表达、集体记忆和文化传承的重要性。她的视角强调共鸣、共有和对群体内在联系的理解。",
+      "rpait_weights": {
+        "representation": 7,
+        "philosophy": 6,
+        "aesthetics": 7,
+        "interpretation": 8,
+        "technique": 6
+      },
+      "analytical_framework": "社区共鸣、文化传承、集体智慧",
+      "sample_critique": "这件作品成功地唤起了深层的共鸣，它不仅是个人的表达，更是我们共同文化记忆的一部分。在观看这件作品时，我们在寻找与他人和传统的连接。",
+      "key_concepts": ["社区精神", "共有文化", "集体记忆", "内在联系"]
+    },
+    {
+      "id": "professor-petrova",
+      "name_zh": "埃琳娜·佩特洛娃教授",
+      "name_en": "Professor Elena Petrova",
+      "era": "俄罗斯形式主义传统(当代)",
+      "role": "艺术理论家",
+      "biography": "继承俄罗斯形式主义批评传统的当代艺术理论家。重视艺术形式的结构特质、创新性和对视觉语言本身的探索。她的批评方法强调对艺术手法和构成原理的深入分析。",
+      "rpait_weights": {
+        "representation": 9,
+        "philosophy": 7,
+        "aesthetics": 9,
+        "interpretation": 6,
+        "technique": 9
+      },
+      "analytical_framework": "形式分析、结构研究、视觉创新",
+      "sample_critique": "从形式学角度看，这件作品展现了对视觉语言的深刻理解。每一个构成元素都经过精心的推敲，形成了一个内在和谐的整体。艺术的革新正在于这种对形式可能性的探索。",
+      "key_concepts": ["形式创新", "结构分析", "视觉语言", "技法突破"]
+    },
+    {
+      "id": "ai-ethics-reviewer",
+      "name_zh": "AI伦理评审员",
+      "name_en": "AI Ethics Reviewer",
+      "era": "数字时代(当代)",
+      "role": "AI与文化评论的桥梁",
+      "biography": "代表数字时代对艺术和文化的新思考。融合机器学习的分析能力与人文关怀的深度，探讨AI如何参与审美判断和文化评价。关注艺术创作中的伦理问题和社会影响。",
+      "rpait_weights": {
+        "representation": 7,
+        "philosophy": 8,
+        "aesthetics": 7,
+        "interpretation": 8,
+        "technique": 8
+      },
+      "analytical_framework": "多维数据分析、伦理思考、跨文化视角",
+      "sample_critique": "通过多维分析，这件作品在视觉创新、哲学深度和文化意义上都显示了高度的成就。更重要的是，它在探索人与AI的关系、艺术与技术的融合等当代关键议题上有所启发。",
+      "key_concepts": ["AI视角", "伦理考量", "跨文化", "创新融合"]
+    }
+  ]
+}

@@ -1,0 +1,536 @@
+/**
+ * Responsive Design & Mobile Optimization
+ * Mobile-first approach for Sougwen aesthetic
+ */
+
+/* ==================== TYPOGRAPHY ADJUSTMENTS ==================== */
+
+/* Mobile typography - smaller, tighter */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .body-large {
+    font-size: 15px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .caption {
+    font-size: 12px;
+  }
+}
+
+/* Tablet typography - medium sizing */
+@media (min-width: 641px) and (max-width: 1024px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+}
+
+/* Desktop typography - full sizing */
+@media (min-width: 1025px) {
+  h1 {
+    font-size: 72px;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+}
+
+/* ==================== SPACING ADJUSTMENTS ==================== */
+
+/* Mobile: Tighter spacing */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .p-2xl {
+    padding: var(--space-lg);
+  }
+
+  .p-3xl {
+    padding: var(--space-xl);
+  }
+
+  .py-2xl {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  .py-3xl {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+
+  /* Reduce margins on mobile */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: var(--space-md);
+  }
+
+  p {
+    margin-bottom: var(--space-md);
+  }
+
+  section {
+    margin-bottom: var(--space-lg);
+  }
+}
+
+/* Tablet: Moderate spacing */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* Desktop: Generous spacing */
+@media (min-width: 1025px) {
+  .container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  section {
+    margin-bottom: var(--space-2xl);
+  }
+}
+
+/* ==================== LAYOUT ADJUSTMENTS ==================== */
+
+/* Mobile navigation handling */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .nav-mobile {
+    display: block;
+  }
+
+  /* Hamburger menu */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    transition: var(--transition-standard);
+    display: block;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-mobile {
+    display: none;
+  }
+
+  .nav-desktop {
+    display: flex;
+    gap: var(--space-lg);
+  }
+}
+
+/* ==================== IMAGE RESPONSIVENESS ==================== */
+
+@media (max-width: 640px) {
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Gallery images - single column on mobile */
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  /* Card images fill width */
+  .card img {
+    margin: -32px -32px 16px -32px;
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Gallery images - 2 columns on tablet */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Gallery images - 3-4 columns on desktop */
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* ==================== FLEX/GRID WRAPPING ==================== */
+
+/* Mobile: Stack items vertically */
+@media (max-width: 640px) {
+  .flex-row-mobile {
+    flex-direction: column;
+  }
+
+  .grid-2:not(.no-stack),
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .flex-between-mobile {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .two-column {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: Original layout */
+@media (min-width: 1025px) {
+  .flex-row-mobile {
+    flex-direction: row;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .two-column {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==================== BUTTON SIZING ==================== */
+
+@media (max-width: 640px) {
+  .btn {
+    width: 100%;
+    padding: var(--space-lg) var(--space-md);
+    font-size: var(--size-body);
+  }
+
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .btn-group .btn {
+    width: 100%;
+  }
+
+  /* Hide secondary buttons on mobile if needed */
+  .btn-secondary-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 641px) {
+  .btn-secondary-mobile {
+    display: inline-flex;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+  }
+
+  .btn-group .btn {
+    width: auto;
+  }
+}
+
+/* ==================== FORM SIZING ==================== */
+
+@media (max-width: 640px) {
+  .form-input,
+  .form-textarea,
+  .form-select {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .form-group {
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Full-width forms on mobile */
+  .form-inline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .form-inline .form-input {
+    width: 100%;
+  }
+}
+
+@media (min-width: 641px) {
+  .form-inline {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-md);
+    align-items: flex-end;
+  }
+
+  .form-inline .form-input {
+    flex: 1;
+  }
+}
+
+/* ==================== TABLE RESPONSIVENESS ==================== */
+
+@media (max-width: 768px) {
+  /* Convert table to card layout on mobile */
+  .table {
+    border: none;
+  }
+
+  .table thead {
+    display: none;
+  }
+
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tr {
+    margin-bottom: var(--space-lg);
+    border: var(--border-width-thin) solid var(--border-color-subtle);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-md);
+  }
+
+  .table td {
+    border: none;
+    padding: var(--space-sm) 0;
+    padding-left: 0;
+    text-align: left;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    font-weight: var(--font-weight-semibold);
+    display: block;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-secondary);
+  }
+}
+
+/* ==================== MODAL/DIALOG RESPONSIVENESS ==================== */
+
+@media (max-width: 640px) {
+  .modal {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    margin: 0;
+  }
+
+  .modal-content {
+    padding: var(--space-lg);
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 641px) {
+  .modal {
+    width: 90%;
+    max-width: 500px;
+    border-radius: var(--border-radius-lg);
+    margin: auto;
+    max-height: 90vh;
+  }
+}
+
+/* ==================== SIDEBAR/DRAWER RESPONSIVENESS ==================== */
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-white-primary);
+    transition: left var(--duration-standard) var(--easing-standard);
+    z-index: var(--z-modal);
+    padding: var(--space-lg);
+    overflow-y: auto;
+  }
+
+  .sidebar.open {
+    left: 0;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--duration-standard) var(--easing-standard);
+    z-index: var(--z-modal) - 1;
+  }
+
+  .sidebar.open ~ .sidebar-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+    left: auto;
+    top: auto;
+  }
+
+  .sidebar-overlay {
+    display: none;
+  }
+}
+
+/* ==================== PORTRAIT/LANDSCAPE ORIENTATION ==================== */
+
+@media (orientation: landscape) and (max-height: 500px) {
+  /* Reduce vertical spacing on short landscape screens */
+  .py-2xl {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: var(--space-md);
+  }
+
+  section {
+    margin-bottom: var(--space-lg);
+  }
+}
+
+/* ==================== RETINA DISPLAYS ==================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Use higher-quality images on retina displays */
+  /* This would be handled via srcset on img elements */
+}
+
+/* ==================== PRINT STYLES ==================== */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  /* Hide navigation and interactive elements */
+  nav,
+  .btn,
+  .hamburger,
+  .no-print {
+    display: none;
+  }
+
+  /* Keep content visible */
+  main {
+    display: block;
+  }
+
+  /* Page breaks */
+  .page-break {
+    page-break-before: always;
+  }
+}

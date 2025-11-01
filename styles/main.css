@@ -1,0 +1,61 @@
+/**
+ * Main Stylesheet
+ * Imports all CSS modules for the exhibition platform
+ *
+ * Load Order:
+ * 1. Design tokens (variables)
+ * 2. Reset & normalization
+ * 3. Layout system (grid, flex, spacing)
+ * 4. Reusable components (buttons, cards, forms)
+ * 5. Aesthetic & animations (Sougwen philosophy)
+ * 6. Responsive design (mobile-first)
+ */
+
+/* 1. Design Tokens & CSS Variables */
+@import url("./variables.css");
+
+/* 2. Reset & Normalization */
+@import url("./reset.css");
+
+/* 3. Layout System */
+@import url("./layout.css");
+
+/* 4. Components */
+@import url("./components.css");
+
+/* 5. Aesthetic & Design Philosophy */
+@import url("./aesthetic.css");
+
+/* 6. Responsive Design */
+@import url("./responsive.css");
+
+/* ==================== GOOGLE FONTS IMPORT ==================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* ==================== THEME VARIABLES REFERENCE ==================== */
+
+/*
+ * Color Palette:
+ * - --color-white-primary: #F8F7F4 (warm white background)
+ * - --color-white-pure: #FFFFFF (pure white for cards)
+ * - --color-blue-deep: #1A2844 (deep blue for text)
+ * - --color-gray-accent: #D4D2CE (subtle gray for borders)
+ *
+ * Spacing Scale:
+ * - xs: 8px, sm: 16px, md: 24px, lg: 32px, xl: 48px, 2xl: 64px, 3xl: 96px
+ *
+ * Typography:
+ * - Display: Crimson Text (serif, poetic)
+ * - Body: Inter (sans-serif, clean)
+ * - Mono: SF Mono (technical)
+ *
+ * Animations:
+ * - Easing: cubic-bezier(0.4, 0, 0.2, 1) - smooth standard
+ * - Duration: 150ms, 300ms, 500ms, 800ms
+ *
+ * Breakpoints:
+ * - Mobile: 320px - 640px
+ * - Tablet: 641px - 1024px
+ * - Desktop: 1025px+
+ */

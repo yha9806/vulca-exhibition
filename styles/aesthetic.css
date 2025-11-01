@@ -1,0 +1,505 @@
+/**
+ * Aesthetic & Design Philosophy
+ * Sougwen Chung-inspired minimal, poetic design
+ *
+ * Core principles:
+ * - Generous negative (white) space
+ * - Minimalist color palette
+ * - Organic, flowing animations
+ * - Poetic clarity
+ * - Process visibility
+ * - Ephemeral quality
+ */
+
+/* ==================== PAGE STRUCTURE ==================== */
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white-primary);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+}
+
+/* ==================== HERO SECTIONS ==================== */
+
+.hero {
+  width: 100%;
+  padding: var(--space-3xl) var(--space-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    min-height: 700px;
+    padding: var(--space-3xl) var(--space-xl);
+  }
+}
+
+.hero h1 {
+  margin-bottom: var(--space-lg);
+  letter-spacing: var(--letter-spacing-tight);
+  animation: fadeInUp 800ms var(--easing-standard) both;
+}
+
+.hero p {
+  max-width: 600px;
+  font-size: var(--size-body-large);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xl);
+  animation: fadeInUp 800ms 200ms var(--easing-standard) both;
+}
+
+.hero .cta {
+  animation: fadeInUp 800ms 400ms var(--easing-standard) both;
+}
+
+/* ==================== WHITESPACE UTILITIES ==================== */
+
+/* Generous whitespace between sections */
+.section-spacer {
+  height: var(--space-3xl);
+}
+
+@media (max-width: 768px) {
+  .section-spacer {
+    height: var(--space-2xl);
+  }
+}
+
+/* Extra breathing room */
+.breathing-room {
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+}
+
+@media (max-width: 768px) {
+  .breathing-room {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+}
+
+/* ==================== TYPOGRAPHY STYLING ==================== */
+
+/* Poetic headings */
+h1,
+h2,
+h3 {
+  letter-spacing: var(--letter-spacing-tight);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Subtle line decoration on headings */
+.heading-line {
+  position: relative;
+  padding-bottom: var(--space-md);
+}
+
+.heading-line::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-interactive-primary);
+  transition: width var(--duration-slow) var(--easing-standard);
+}
+
+.heading-line:hover::after {
+  width: 80px;
+}
+
+/* Elegant body text */
+body {
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+/* Justified text for prose (optional - very poetic) */
+.text-prose {
+  max-width: var(--max-width-prose);
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ==================== CARD AESTHETICS ==================== */
+
+.card {
+  background: linear-gradient(135deg, var(--color-white-pure) 0%, rgba(255, 255, 255, 0.5) 100%);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle animation on card hover */
+.card {
+  transform: translateY(0);
+  transition: transform var(--duration-standard) var(--easing-standard),
+              box-shadow var(--duration-standard) var(--easing-standard);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-small);
+}
+
+/* Card with background accent */
+.card-accent {
+  position: relative;
+}
+
+.card-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-interactive-primary), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-standard) var(--easing-standard);
+}
+
+.card-accent:hover::before {
+  opacity: 1;
+}
+
+/* ==================== DIVIDER & SEPARATOR STYLES ==================== */
+
+.divider-poetic {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--border-color-subtle) 20%,
+    var(--border-color-subtle) 80%,
+    transparent);
+  margin: var(--space-2xl) 0;
+  opacity: 0.6;
+}
+
+.divider-ornament {
+  text-align: center;
+  position: relative;
+  margin: var(--space-2xl) 0;
+}
+
+.divider-ornament::before {
+  content: "·";
+  font-size: 24px;
+  color: var(--border-color-subtle);
+  opacity: 0.6;
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+/* Fade in from top */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in from bottom */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in from left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade in from right */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Gentle pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Smooth scale animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==================== INTERACTIVE ELEMENTS ==================== */
+
+/* Smooth hover effects on links */
+a {
+  position: relative;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-interactive-primary);
+  transition: width var(--duration-standard) var(--easing-standard);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* Button interactions */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width var(--duration-standard) var(--easing-standard),
+              height var(--duration-standard) var(--easing-standard);
+  pointer-events: none;
+}
+
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ==================== LOADING & FEEDBACK STATES ==================== */
+
+/* Gentle loading animation */
+.loading {
+  animation: pulse 1.5s var(--easing-standard) infinite;
+}
+
+/* Smooth transitions for state changes */
+[data-loading="true"] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ==================== GALLERY & IMAGE DISPLAY ==================== */
+
+/* Image container with breathing room */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  background-color: #F5F5F5;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform var(--duration-slow) var(--easing-standard);
+}
+
+.image-container:hover img {
+  transform: scale(1.02);
+}
+
+/* Image with caption */
+.image-caption {
+  padding: var(--space-md);
+  text-align: center;
+  font-size: var(--size-caption);
+  color: var(--color-text-secondary);
+  background-color: #FAFAFA;
+  border-top: var(--border-width-thin) solid var(--border-color-subtle);
+}
+
+/* ==================== NAVIGATION STYLING ==================== */
+
+nav {
+  background-color: var(--color-white-pure);
+  border-bottom: var(--border-width-thin) solid var(--border-color-subtle);
+  padding: var(--space-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  transition: all var(--duration-standard) var(--easing-standard);
+}
+
+nav a {
+  position: relative;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  display: inline-block;
+}
+
+nav a::after {
+  height: 2px;
+  background-color: var(--color-interactive-primary);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ==================== FOOTER STYLING ==================== */
+
+footer {
+  background-color: var(--color-white-primary);
+  border-top: var(--border-width-thin) solid var(--border-color-subtle);
+  padding: var(--space-2xl) 0;
+  margin-top: var(--space-3xl);
+  color: var(--color-text-secondary);
+  font-size: var(--size-body);
+}
+
+footer a {
+  color: var(--color-interactive-primary);
+}
+
+footer a:hover {
+  color: var(--color-interactive-hover);
+}
+
+/* ==================== FOCUS STATES FOR ACCESSIBILITY ==================== */
+
+:focus-visible {
+  outline: 2px solid var(--color-interactive-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ==================== DARK MODE SUPPORT (Optional) ==================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* For now, we keep the light Sougwen aesthetic even in dark mode */
+    /* This maintains the poetic, minimal feeling */
+  }
+}
+
+/* ==================== REDUCED MOTION SUPPORT ==================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ==================== SPECIAL EFFECTS ==================== */
+
+/* Subtle gradient text (for headings) */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-interactive-primary), var(--color-blue-deep));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Flowing line animation (decorative) */
+@keyframes flowingLine {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.flowing-line {
+  stroke-dasharray: 1000;
+  animation: flowingLine 3s ease-in-out forwards;
+}
+
+/* ==================== PRINT-FRIENDLY AESTHETIC ==================== */
+
+@media print {
+  .no-print,
+  nav,
+  footer {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  a {
+    color: black;
+  }
+
+  /* Preserve formatting in print */
+  .text-prose {
+    column-count: 1;
+  }
+}

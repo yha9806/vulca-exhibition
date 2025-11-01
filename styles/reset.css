@@ -1,0 +1,323 @@
+/**
+ * CSS Reset & Normalization
+ * Creates a clean slate for Sougwen aesthetic
+ */
+
+/* ==================== UNIVERSAL RESET ==================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* ==================== HTML & BODY ==================== */
+
+html {
+  /* Smooth scrolling behavior */
+  scroll-behavior: smooth;
+
+  /* Responsive font sizing */
+  font-size: 16px;
+}
+
+body {
+  /* Typography defaults */
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--letter-spacing-normal);
+
+  /* Colors */
+  color: var(--color-text-primary);
+  background-color: var(--color-white-primary);
+
+  /* Smoothing for better rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+
+  /* Remove default margins */
+  margin: 0;
+  padding: 0;
+}
+
+/* ==================== TYPOGRAPHY ==================== */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-heading);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--size-display-large);
+  line-height: var(--line-height-display);
+}
+
+h2 {
+  font-size: var(--size-display-small);
+  line-height: var(--line-height-heading);
+}
+
+h3 {
+  font-size: var(--size-heading);
+  line-height: var(--line-height-heading);
+}
+
+h4 {
+  font-size: var(--size-subheading);
+  line-height: var(--line-height-subheading);
+}
+
+h5 {
+  font-size: var(--size-body-large);
+}
+
+h6 {
+  font-size: var(--size-body);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Paragraphs */
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Lists */
+ul, ol, dl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 0;
+  padding: 0;
+  border-left: 4px solid var(--color-gray-accent);
+  padding-left: var(--space-md);
+  font-style: italic;
+}
+
+/* Code */
+code,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+code {
+  padding: 0 4px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: var(--border-radius-sm);
+}
+
+pre {
+  background-color: #F5F5F5;
+  padding: var(--space-md);
+  border-radius: var(--border-radius-md);
+  overflow-x: auto;
+  margin: 0;
+}
+
+/* ==================== LINKS ==================== */
+
+a {
+  color: var(--color-interactive-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  position: relative;
+  display: inline-block;
+}
+
+a:hover {
+  color: var(--color-interactive-hover);
+}
+
+a:active {
+  color: var(--color-interactive-active);
+}
+
+a:focus-visible {
+  outline: var(--outline-width) solid var(--outline-color);
+  outline-offset: var(--outline-offset);
+  border-radius: var(--border-radius-sm);
+}
+
+/* ==================== IMAGES & MEDIA ==================== */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  /* Prevent image dragging */
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Responsive images */
+img[width],
+img[height] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* SVG icons */
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ==================== FORM ELEMENTS ==================== */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+button:focus-visible {
+  outline: var(--outline-width) solid var(--outline-color);
+  outline-offset: var(--outline-offset);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input,
+textarea,
+select {
+  border: var(--border-width-thin) solid var(--border-color-subtle);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-sm);
+  transition: var(--transition-fast);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: var(--outline-width) solid var(--outline-color);
+  outline-offset: var(--outline-offset);
+  border-color: var(--color-interactive-primary);
+}
+
+textarea {
+  resize: vertical;
+  font-family: var(--font-mono);
+}
+
+/* ==================== SEMANTIC HTML ELEMENTS ==================== */
+
+main {
+  display: block;
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+
+/* Skip links */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-interactive-primary);
+  color: white;
+  padding: var(--space-sm);
+  text-decoration: none;
+  z-index: var(--z-modal);
+}
+
+.skip-to-main:focus-visible {
+  top: 0;
+}
+
+/* Visually hide but keep for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==================== PRINT STYLES ==================== */
+
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+  }
+
+  /* Hide interactive elements in print */
+  button,
+  form,
+  .no-print {
+    display: none;
+  }
+}
