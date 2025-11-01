@@ -62,7 +62,7 @@ async function loadData() {
     // Load pre-written critiques (optional - silently fail if unavailable)
     try {
       const timestamp = new Date().getTime();
-      const critiquesResponse = await fetch(`/data/critiques.json?v=${timestamp}`);
+      const critiquesResponse = await fetch(`/data/critiques-v2.json?v=${timestamp}`);
       if (critiquesResponse.ok) {
         const critiquesData = await critiquesResponse.json();
         AppState.critiqueLibrary = critiquesData.critiques;
