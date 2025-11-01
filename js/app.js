@@ -15,9 +15,9 @@
 const AppState = {
   personas: [],
   artworks: [],
+  critiqueLibrary: [],
   selectedArtwork: null,
   selectedPersona: null,
-  critiques: {},
   loading: false,
 
   init() {
@@ -34,12 +34,10 @@ const AppState = {
     console.log('Selected persona:', id);
   },
 
-  addCritique(key, critique) {
-    this.critiques[key] = critique;
-  },
-
   getCritique(artworkId, personaId) {
-    return this.critiques[`${artworkId}-${personaId}`];
+    return this.critiqueLibrary.find(c =>
+      c.artwork_id === artworkId && c.persona_id === personaId
+    );
   }
 };
 
@@ -49,13 +47,21 @@ async function loadData() {
   try {
     // Load personas data
     const personasResponse = await fetch('/data/personas.json');
-    AppState.personas = await personasResponse.json();
+    const personasData = await personasResponse.json();
+    AppState.personas = personasData.personas;
     console.log('Loaded personas:', AppState.personas);
 
     // Load artworks data
     const artworksResponse = await fetch('/data/artworks.json');
-    AppState.artworks = await artworksResponse.json();
+    const artworksData = await artworksResponse.json();
+    AppState.artworks = artworksData.artworks;
     console.log('Loaded artworks:', AppState.artworks);
+
+    // Load pre-written critiques
+    const critiquesResponse = await fetch('/data/critiques.json');
+    const critiquesData = await critiquesResponse.json();
+    AppState.critiqueLibrary = critiquesData.critiques;
+    console.log('Loaded critique library:', AppState.critiqueLibrary.length, 'critiques');
 
     renderPersonas();
   } catch (error) {
