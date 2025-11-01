@@ -74,6 +74,10 @@ const AppState = {
 // ==================== DATA LOADING ====================
 
 async function loadData() {
+  if (typeof PerformanceMonitor !== 'undefined') {
+    PerformanceMonitor.mark('data-loading-start');
+  }
+
   try {
     // Load personas data
     const personasResponse = await fetch('/data/personas.json');
@@ -94,13 +98,31 @@ async function loadData() {
 
     // Initialize data indexes for O(1) lookups
     if (typeof DataIndexes !== 'undefined') {
+      if (typeof PerformanceMonitor !== 'undefined') {
+        PerformanceMonitor.mark('data-index-init-start');
+      }
       DataIndexes.init();
+      if (typeof PerformanceMonitor !== 'undefined') {
+        PerformanceMonitor.mark('data-index-init-end');
+        PerformanceMonitor.measure('data-index-init', 'data-index-init-start', 'data-index-init-end');
+      }
+    }
+
+    if (typeof PerformanceMonitor !== 'undefined') {
+      PerformanceMonitor.mark('rendering-start');
     }
 
     renderPersonas();
     renderArtworkSelector();
     renderPersonaSelector();
     setupEventListeners();
+
+    if (typeof PerformanceMonitor !== 'undefined') {
+      PerformanceMonitor.mark('rendering-end');
+      PerformanceMonitor.measure('rendering', 'rendering-start', 'rendering-end');
+      PerformanceMonitor.mark('data-loading-end');
+      PerformanceMonitor.measure('data-loading', 'data-loading-start', 'data-loading-end');
+    }
 
     // Initialize exhibition plan if available
     if (typeof initExhibitionPlan !== 'undefined') {
@@ -212,6 +234,11 @@ function showError(message) {
 // ==================== INITIALIZATION ====================
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Initialize performance monitoring
+  if (typeof PerformanceMonitor !== 'undefined') {
+    PerformanceMonitor.init();
+  }
+
   console.log('DOM Content Loaded');
   AppState.init();
 
@@ -245,6 +272,7 @@ function handleGetCritique() {
     return;
   }
 
+  const interactionStart = performance.now();
   const critique = AppState.getCritique(AppState.selectedArtwork, AppState.selectedPersona);
   if (!critique) {
     console.warn('Critique not found');
@@ -285,6 +313,13 @@ function displayCritique(critique) {
     setTimeout(() => {
       display.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 100);
+  }
+
+  // Track interaction performance if available
+  if (typeof PerformanceMonitor !== 'undefined' && window.__interactionStart) {
+    const duration = performance.now() - window.__interactionStart;
+    PerformanceMonitor.trackInteraction('get-critique', duration);
+    delete window.__interactionStart;
   }
 
   console.log('Critique displayed:', critique);
