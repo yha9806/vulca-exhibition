@@ -124,17 +124,79 @@
         </div>
       </div>
 
-      <!-- AI Critique System -->
+      <!-- Interactive Critique Experience -->
       <div class="card card-lg mt-lg">
-        <h3>AI驱动的评论生成</h3>
+        <h3>交互式评论体验</h3>
         <p class="mt-md">
-          选择一件作品，选择一位评论家，AI将生成这位评论家对该作品的独特评论。
+          选择一件作品与一位评论家，阅读多维度的艺术评论。
           体验不同视角如何赋予同一件作品全新的意义。
         </p>
-        <div class="mt-lg flex flex-gap-md">
-          <span class="badge badge-primary">AI技术</span>
-          <span class="badge badge-primary">多维分析</span>
-          <span class="badge badge-primary">实时生成</span>
+
+        <!-- Artwork Selection -->
+        <div class="mt-lg">
+          <h4 style="font-size: var(--size-body); margin-bottom: var(--space-md); color: var(--color-text-primary);">选择艺术作品</h4>
+          <div class="artwork-grid" id="artworkSelector" style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-md);
+          ">
+            <!-- Artwork cards will be inserted here by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Persona Selection -->
+        <div class="mt-lg">
+          <h4 style="font-size: var(--size-body); margin-bottom: var(--space-md); color: var(--color-text-primary);">选择评论家视角</h4>
+          <div class="persona-selector" id="personaSelector" style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: var(--space-md);
+          ">
+            <!-- Persona cards will be inserted here by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Get Critique Button -->
+        <div class="mt-lg text-center">
+          <button id="getCritiqueBtn" class="btn btn-primary btn-lg" style="cursor: pointer;">
+            获取评论
+          </button>
+          <p id="selectionStatus" style="margin-top: var(--space-sm); font-size: var(--size-caption); color: var(--color-text-secondary); min-height: 20px;">
+            请选择一件作品和一位评论家
+          </p>
+        </div>
+
+        <!-- Critique Display -->
+        <div id="critiqueDisplay" style="margin-top: var(--space-lg); display: none;">
+          <div style="
+            background-color: #F9F7F3;
+            padding: var(--space-lg);
+            border-radius: var(--border-radius-lg);
+            border-left: 4px solid var(--color-accent);
+          ">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-md);">
+              <div>
+                <h4 id="critiquePersonaName" style="font-size: var(--size-body); color: var(--color-text-primary); margin: 0;">评论家</h4>
+                <p id="critiqueArtworkTitle" style="font-size: var(--size-caption); color: var(--color-text-secondary); margin: var(--space-xs) 0 0 0;">作品</p>
+              </div>
+              <button id="closeCritiqueBtn" style="
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                color: var(--color-text-secondary);
+                padding: 0;
+                width: 32px;
+                height: 32px;
+              ">×</button>
+            </div>
+
+            <!-- Bilingual Critique -->
+            <div id="critiqueContent" style="line-height: 1.8;">
+              <p id="critiqueEnglish" style="margin-bottom: var(--space-md); color: var(--color-text-primary);"></p>
+              <p id="critiqueChinese" style="margin-bottom: 0; color: var(--color-text-primary);"></p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

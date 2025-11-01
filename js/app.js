@@ -27,11 +27,13 @@ const AppState = {
 
   setSelectedArtwork(id) {
     this.selectedArtwork = id;
+    this.updateSelectionStatus();
     console.log('Selected artwork:', id);
   },
 
   setSelectedPersona(id) {
     this.selectedPersona = id;
+    this.updateSelectionStatus();
     console.log('Selected persona:', id);
   },
 
@@ -39,6 +41,24 @@ const AppState = {
     return this.critiqueLibrary.find(c =>
       c.artwork_id === artworkId && c.persona_id === personaId
     );
+  },
+
+  updateSelectionStatus() {
+    const statusEl = document.getElementById('selectionStatus');
+    const btnEl = document.getElementById('getCritiqueBtn');
+    if (!statusEl || !btnEl) return;
+
+    if (this.selectedArtwork && this.selectedPersona) {
+      const artwork = this.artworks.find(a => a.id === this.selectedArtwork);
+      const persona = this.personas.find(p => p.persona_id === this.selectedPersona);
+      statusEl.textContent = `已选择: ${artwork?.title_zh || artwork?.title} & ${persona?.name_zh || persona?.name_en}`;
+      btnEl.disabled = false;
+      btnEl.style.opacity = '1';
+    } else {
+      statusEl.textContent = '请选择一件作品和一位评论家';
+      btnEl.disabled = true;
+      btnEl.style.opacity = '0.5';
+    }
   }
 };
 
@@ -64,6 +84,9 @@ async function loadData() {
     }
 
     renderPersonas();
+    renderArtworkSelector();
+    renderPersonaSelector();
+    setupEventListeners();
   } catch (error) {
     console.error('Error loading data:', error);
     showError('无法加载展览数据，请刷新页面重试。');
@@ -72,6 +95,107 @@ async function loadData() {
 }
 
 // ==================== RENDERING ====================
+
+function renderArtworkSelector() {
+  const container = document.getElementById('artworkSelector');
+  if (!container || !AppState.artworks || AppState.artworks.length === 0) {
+    console.warn('Artwork selector container not found or no artworks loaded');
+    return;
+  }
+
+  container.innerHTML = '';
+
+  AppState.artworks.forEach(artwork => {
+    const card = document.createElement('div');
+    card.className = 'artwork-card';
+    card.setAttribute('data-artwork-id', artwork.id);
+    card.style.cssText = `
+      padding: var(--space-md);
+      border: 2px solid transparent;
+      border-radius: var(--border-radius-lg);
+      background-color: #F0EEE8;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    `;
+    card.innerHTML = `
+      <div style="font-size: 32px; margin-bottom: var(--space-sm);">🖼️</div>
+      <p style="font-size: var(--size-caption); font-weight: 600; color: var(--color-text-primary); margin: 0 0 var(--space-xs) 0;">
+        ${artwork.title_zh}
+      </p>
+      <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0;">
+        ${artwork.year}
+      </p>
+    `;
+
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.artwork-card').forEach(c => {
+        c.style.borderColor = 'transparent';
+        c.style.backgroundColor = '#F0EEE8';
+      });
+      card.style.borderColor = 'var(--color-accent)';
+      card.style.backgroundColor = '#FFF8F0';
+      AppState.setSelectedArtwork(artwork.id);
+    });
+
+    container.appendChild(card);
+  });
+}
+
+function renderPersonaSelector() {
+  const container = document.getElementById('personaSelector');
+  if (!container || !AppState.personas || AppState.personas.length === 0) {
+    console.warn('Persona selector container not found or no personas loaded');
+    return;
+  }
+
+  container.innerHTML = '';
+
+  AppState.personas.forEach(persona => {
+    const card = document.createElement('div');
+    card.className = 'persona-selector-card';
+    card.setAttribute('data-persona-id', persona.persona_id);
+    card.style.cssText = `
+      padding: var(--space-md);
+      border: 2px solid transparent;
+      border-radius: var(--border-radius-lg);
+      background-color: #F0EEE8;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    `;
+    card.innerHTML = `
+      <div style="
+        width: 60px;
+        height: 60px;
+        background-color: #E8E4D8;
+        border-radius: var(--border-radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin: 0 auto var(--space-sm);
+      ">
+        ${persona.name_zh.charAt(0)}
+      </div>
+      <p style="font-size: 12px; font-weight: 600; color: var(--color-text-primary); margin: 0; line-height: 1.4;">
+        ${persona.name_zh}<br><span style="font-weight: 400; font-size: 10px; color: var(--color-text-secondary);">${persona.name_en}</span>
+      </p>
+    `;
+
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.persona-selector-card').forEach(c => {
+        c.style.borderColor = 'transparent';
+        c.style.backgroundColor = '#F0EEE8';
+      });
+      card.style.borderColor = 'var(--color-accent)';
+      card.style.backgroundColor = '#FFF8F0';
+      AppState.setSelectedPersona(persona.persona_id);
+    });
+
+    container.appendChild(card);
+  });
+}
 
 function renderPersonas() {
   const container = document.querySelector('#personas .grid');
@@ -174,17 +298,75 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM Content Loaded');
   AppState.init();
 
-  // Check if we're in a development environment with local data
-  // For now, try to load from JSON files
+  // Load data and set up interactive features
   loadData();
-
-  // Add any additional event listeners here
-  setupEventListeners();
 });
 
 function setupEventListeners() {
-  // Placeholder for future interactive features
+  // Get Critique Button
+  const getCritiqueBtn = document.getElementById('getCritiqueBtn');
+  if (getCritiqueBtn) {
+    getCritiqueBtn.addEventListener('click', handleGetCritique);
+  }
+
+  // Close Critique Button
+  const closeCritiqueBtn = document.getElementById('closeCritiqueBtn');
+  if (closeCritiqueBtn) {
+    closeCritiqueBtn.addEventListener('click', hideCritique);
+  }
+
   console.log('Event listeners set up');
+}
+
+function handleGetCritique() {
+  if (!AppState.selectedArtwork || !AppState.selectedPersona) {
+    console.warn('Please select both artwork and persona');
+    return;
+  }
+
+  const critique = AppState.getCritique(AppState.selectedArtwork, AppState.selectedPersona);
+  if (!critique) {
+    console.warn('Critique not found');
+    showError('评论未找到，请重试。');
+    return;
+  }
+
+  displayCritique(critique);
+}
+
+function displayCritique(critique) {
+  const artwork = AppState.artworks.find(a => a.id === critique.artwork_id);
+  const persona = AppState.personas.find(p => p.persona_id === critique.persona_id);
+
+  if (!artwork || !persona) {
+    console.warn('Artwork or persona not found');
+    return;
+  }
+
+  // Update critique display
+  document.getElementById('critiquePersonaName').textContent = `${persona.name_zh} (${persona.name_en})`;
+  document.getElementById('critiqueArtworkTitle').textContent = `${artwork.title_zh}`;
+  document.getElementById('critiqueEnglish').textContent = critique.critique;
+  document.getElementById('critiqueChinese').textContent = critique.critique_zh;
+
+  // Show critique display
+  const display = document.getElementById('critiqueDisplay');
+  if (display) {
+    display.style.display = 'block';
+    // Smooth scroll to critique
+    setTimeout(() => {
+      display.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+
+  console.log('Critique displayed:', critique);
+}
+
+function hideCritique() {
+  const display = document.getElementById('critiqueDisplay');
+  if (display) {
+    display.style.display = 'none';
+  }
 }
 
 // ==================== UTILITIES ====================
