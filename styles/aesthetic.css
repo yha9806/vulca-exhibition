@@ -41,14 +41,14 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 500px;
+  min-height: 400px;
   position: relative;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .hero {
-    min-height: 700px;
+    min-height: 550px;
     padding: var(--space-3xl) var(--space-xl);
   }
 }
@@ -501,5 +501,100 @@ footer a:hover {
   /* Preserve formatting in print */
   .text-prose {
     column-count: 1;
+  }
+}
+
+/* ==================== HEADER & NAVIGATION ==================== */
+
+header {
+  background-color: rgba(248, 247, 244, 0.95);
+  border-bottom: 1px solid var(--color-border-light);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  transition: background-color var(--duration-standard) var(--easing-standard);
+}
+
+header nav {
+  padding: var(--space-md) 0;
+}
+
+.nav-logo {
+  font-weight: var(--font-weight-semibold);
+}
+
+.brand-logo {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  color: var(--color-text-primary);
+  transition: var(--transition-fast);
+}
+
+.brand-logo:hover {
+  opacity: 0.7;
+}
+
+.brand-text {
+  font-size: var(--size-body-large);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.brand-subtitle {
+  font-size: var(--size-caption);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-regular);
+}
+
+.nav-desktop {
+  list-style: none;
+}
+
+.nav-desktop a {
+  text-decoration: none;
+  color: var(--color-text-primary);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-fast);
+}
+
+.nav-desktop a:hover {
+  background-color: var(--color-bg-light);
+  color: var(--color-interactive-primary);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-sm);
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  transition: var(--transition-fast);
+  border-radius: 1px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-desktop {
+    display: none;
+  }
+
+  .nav-mobile {
+    background-color: var(--color-white-pure);
+    border-top: 1px solid var(--color-border-light);
   }
 }

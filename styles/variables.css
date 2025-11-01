@@ -19,7 +19,7 @@
 
   /* Text Colors */
   --color-text-primary: #1A2844;        /* Deep blue for main text */
-  --color-text-secondary: #6B6B6B;      /* Gray for secondary text */
+  --color-text-secondary: #5A5A5A;      /* Gray for secondary text */
   --color-text-muted: #999999;          /* Lighter gray for muted text */
   --color-text-light: #F8F7F4;          /* Light text on dark backgrounds */
 
@@ -56,11 +56,11 @@
   --color-chart-border: #e0e0e0;
 
   /* Budget Category Colors */
-  --color-budget-artwork: #C9B8A3;
+  --color-budget-artwork: #B8A892;
   --color-budget-rolecard: #D4A373;
-  --color-budget-digital: #8B9BA3;
+  --color-budget-digital: #8BA8B3;
   --color-budget-logistics: #A89881;
-  --color-budget-promotion: #9B8B7E;
+  --color-budget-promotion: #9BA08E;
 
   /* ==================== TYPOGRAPHY ==================== */
 
@@ -77,6 +77,10 @@
   --size-body-large: 16px;
   --size-body: 14px;
   --size-caption: 12px;
+
+  /* Additional font sizes for better typography scale */
+  --size-subheading-small: 16px;  /* h5 */
+  --size-body-small: 13px;         /* caption alternative */
 
   /* Line Heights */
   --line-height-display: 1.2;
@@ -102,6 +106,7 @@
   --space-xs: 8px;
   --space-sm: 16px;
   --space-md: 24px;
+  --space-md-lg: 28px;
   --space-lg: 32px;
   --space-xl: 48px;
   --space-2xl: 64px;
@@ -209,5 +214,16 @@
   :root {
     /* Further scaling for spacious layouts */
     --size-display-large: 72px;
+  }
+}
+
+/* ==================== EXTENDED BREAKPOINT ==================== */
+
+/* Ultra-wide displays */
+@media (min-width: 1440px) {
+  :root {
+    --max-width-container: 1400px;
+    --size-display-large: 80px;
+    --space-2xl: 80px;
   }
 }
