@@ -47,19 +47,39 @@ async function loadData() {
   try {
     // Load personas data
     const personasResponse = await fetch('/data/personas.json');
+    if (!personasResponse.ok) throw new Error(`HTTP ${personasResponse.status}`);
     const personasData = await personasResponse.json();
     AppState.personas = personasData.personas;
     console.log('Loaded personas:', AppState.personas);
 
     // Load artworks data
     const artworksResponse = await fetch('/data/artworks.json');
+    if (!artworksResponse.ok) throw new Error(`HTTP ${artworksResponse.status}`);
     const artworksData = await artworksResponse.json();
     AppState.artworks = artworksData.artworks;
     console.log('Loaded artworks:', AppState.artworks);
 
-    // Load pre-written critiques
-    const critiquesResponse = await fetch('/data/critiques.json');
-    const critiquesData = await critiquesResponse.json();
+    // Load pre-written critiques with retry logic
+    let critiquesData = null;
+    let retries = 0;
+    const maxRetries = 3;
+
+    while (retries < maxRetries && !critiquesData) {
+      try {
+        const critiquesResponse = await fetch('/data/critiques.json');
+        if (!critiquesResponse.ok) throw new Error(`HTTP ${critiquesResponse.status}`);
+        critiquesData = await critiquesResponse.json();
+      } catch (err) {
+        retries++;
+        if (retries < maxRetries) {
+          console.warn(`Critique load attempt ${retries} failed, retrying...`, err);
+          await new Promise(resolve => setTimeout(resolve, 500));
+        } else {
+          throw err;
+        }
+      }
+    }
+
     AppState.critiqueLibrary = critiquesData.critiques;
     console.log('Loaded critique library:', AppState.critiqueLibrary.length, 'critiques');
 
