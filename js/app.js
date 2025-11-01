@@ -53,7 +53,7 @@ async function loadData() {
     console.log('Loaded personas:', AppState.personas);
 
     // Load artworks data
-    const artworksResponse = await fetch('/data/artworks.json');
+    const artworksResponse = await fetch('/data/artworks-v2.json');
     if (!artworksResponse.ok) throw new Error(`HTTP ${artworksResponse.status}`);
     const artworksData = await artworksResponse.json();
     AppState.artworks = artworksData.artworks;
