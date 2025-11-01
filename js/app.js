@@ -59,35 +59,28 @@ async function loadData() {
     AppState.artworks = artworksData.artworks;
     console.log('Loaded artworks:', AppState.artworks);
 
-    // Load pre-written critiques with retry logic
-    let critiquesData = null;
-    let retries = 0;
-    const maxRetries = 3;
-
-    while (retries < maxRetries && !critiquesData) {
-      try {
-        const timestamp = new Date().getTime();
-        const critiquesResponse = await fetch(`/data/critiques.json?v=${timestamp}`);
-        if (!critiquesResponse.ok) throw new Error(`HTTP ${critiquesResponse.status}`);
-        critiquesData = await critiquesResponse.json();
-      } catch (err) {
-        retries++;
-        if (retries < maxRetries) {
-          console.warn(`Critique load attempt ${retries} failed, retrying...`, err);
-          await new Promise(resolve => setTimeout(resolve, 500));
-        } else {
-          throw err;
-        }
+    // Load pre-written critiques (optional - silently fail if unavailable)
+    try {
+      const timestamp = new Date().getTime();
+      const critiquesResponse = await fetch(`/data/critiques.json?v=${timestamp}`);
+      if (critiquesResponse.ok) {
+        const critiquesData = await critiquesResponse.json();
+        AppState.critiqueLibrary = critiquesData.critiques;
+        console.log('Loaded critique library:', AppState.critiqueLibrary.length, 'critiques');
+      } else {
+        console.warn('Critique library not available, continuing without it');
+        AppState.critiqueLibrary = [];
       }
+    } catch (err) {
+      console.warn('Could not load critique library:', err);
+      AppState.critiqueLibrary = [];
     }
-
-    AppState.critiqueLibrary = critiquesData.critiques;
-    console.log('Loaded critique library:', AppState.critiqueLibrary.length, 'critiques');
 
     renderPersonas();
   } catch (error) {
     console.error('Error loading data:', error);
     showError('无法加载展览数据，请刷新页面重试。');
+    renderPersonas(); // Still render whatever we have
   }
 }
 
