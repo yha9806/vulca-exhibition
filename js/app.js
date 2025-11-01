@@ -1,6 +1,7 @@
 /**
  * Main Application Script
  * Exhibition Platform - Core Logic
+ * Version: 2.0.2 - CDN Cache Bust
  *
  * Handles:
  * - Page initialization
