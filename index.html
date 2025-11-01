@@ -161,9 +161,14 @@
 
         <!-- Get Critique Button -->
         <div class="mt-lg text-center">
-          <button id="getCritiqueBtn" class="btn btn-primary btn-lg" style="cursor: pointer;">
-            获取评论
-          </button>
+          <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+            <button id="getCritiqueBtn" class="btn btn-primary btn-lg" style="cursor: pointer;">
+              获取评论
+            </button>
+            <button id="getComparisonBtn" class="btn btn-secondary btn-lg" style="cursor: pointer; background-color: #666; color: white;">
+              对比视图
+            </button>
+          </div>
           <p id="selectionStatus" style="margin-top: var(--space-sm); font-size: var(--size-caption); color: var(--color-text-secondary); min-height: 20px;">
             请选择一件作品和一位评论家
           </p>
@@ -209,6 +214,42 @@
                   评论维度<br><span style="font-size: 10px;">R P A I T</span>
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison View Display -->
+        <div id="comparisonDisplay" style="margin-top: var(--space-lg); display: none;">
+          <div style="
+            background-color: #F9F7F3;
+            padding: var(--space-lg);
+            border-radius: var(--border-radius-lg);
+            border-left: 4px solid var(--color-accent);
+          ">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
+              <div>
+                <h4 id="comparisonArtworkTitle" style="font-size: var(--size-body); color: var(--color-text-primary); margin: 0;">作品对比</h4>
+                <p style="font-size: var(--size-caption); color: var(--color-text-secondary); margin: var(--space-xs) 0 0 0;">多位评论家的不同视角</p>
+              </div>
+              <button id="closeComparisonBtn" style="
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                color: var(--color-text-secondary);
+                padding: 0;
+                width: 32px;
+                height: 32px;
+              ">×</button>
+            </div>
+
+            <!-- Comparison Grid -->
+            <div id="comparisonGrid" style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: var(--space-lg);
+            ">
+              <!-- Individual critique cards will be inserted here -->
             </div>
           </div>
         </div>

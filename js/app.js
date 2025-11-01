@@ -315,6 +315,18 @@ function setupEventListeners() {
     closeCritiqueBtn.addEventListener('click', hideCritique);
   }
 
+  // Get Comparison Button
+  const getComparisonBtn = document.getElementById('getComparisonBtn');
+  if (getComparisonBtn) {
+    getComparisonBtn.addEventListener('click', handleGetComparison);
+  }
+
+  // Close Comparison Button
+  const closeComparisonBtn = document.getElementById('closeComparisonBtn');
+  if (closeComparisonBtn) {
+    closeComparisonBtn.addEventListener('click', hideComparison);
+  }
+
   console.log('Event listeners set up');
 }
 
@@ -367,6 +379,106 @@ function displayCritique(critique) {
 
 function hideCritique() {
   const display = document.getElementById('critiqueDisplay');
+  if (display) {
+    display.style.display = 'none';
+  }
+}
+
+// ==================== COMPARISON VIEW ====================
+
+function handleGetComparison() {
+  if (!AppState.selectedArtwork) {
+    console.warn('Please select an artwork for comparison');
+    return;
+  }
+
+  // Get all critiques for the selected artwork
+  const critiques = AppState.critiqueLibrary.filter(c => c.artwork_id === AppState.selectedArtwork);
+  if (critiques.length === 0) {
+    console.warn('No critiques found for this artwork');
+    showError('未找到该作品的评论');
+    return;
+  }
+
+  displayComparison(critiques);
+}
+
+function displayComparison(critiques) {
+  const artwork = AppState.artworks.find(a => a.id === critiques[0].artwork_id);
+  if (!artwork) {
+    console.warn('Artwork not found');
+    return;
+  }
+
+  // Update comparison title
+  document.getElementById('comparisonArtworkTitle').textContent = `${artwork.title_zh} - 多角度评论`;
+
+  // Clear previous comparison grid
+  const comparisonGrid = document.getElementById('comparisonGrid');
+  comparisonGrid.innerHTML = '';
+
+  // Create comparison card for each critique
+  critiques.forEach(critique => {
+    const persona = AppState.personas.find(p => p.id === critique.persona_id);
+    if (!persona) return;
+
+    const card = document.createElement('div');
+    card.style.cssText = `
+      background-color: #fff;
+      padding: var(--space-md);
+      border-radius: var(--border-radius-lg);
+      border: 1px solid #e0e0e0;
+    `;
+    card.innerHTML = `
+      <div style="margin-bottom: var(--space-sm);">
+        <h5 style="font-size: var(--size-body); font-weight: 600; color: var(--color-text-primary); margin: 0 0 var(--space-xs) 0;">
+          ${persona.name_zh} <span style="font-size: 0.7em; font-weight: normal; color: var(--color-text-secondary);">${persona.name_en}</span>
+        </h5>
+        <p style="font-size: var(--size-caption); color: var(--color-text-secondary); margin: 0;">
+          ${persona.era}
+        </p>
+      </div>
+      <div style="line-height: 1.6;">
+        <p style="font-size: var(--size-caption); color: var(--color-text-primary); margin: 0 0 var(--space-sm) 0;">
+          <strong>English:</strong>
+        </p>
+        <p style="font-size: var(--size-caption); color: var(--color-text-primary); margin: 0 0 var(--space-md) 0;">
+          ${critique.critique}
+        </p>
+        <p style="font-size: var(--size-caption); color: var(--color-text-primary); margin: 0 0 var(--space-sm) 0;">
+          <strong>中文：</strong>
+        </p>
+        <p style="font-size: var(--size-caption); color: var(--color-text-primary); margin: 0;">
+          ${critique.critique_zh}
+        </p>
+      </div>
+      <div style="margin-top: var(--space-md); padding-top: var(--space-sm); border-top: 1px solid #f0f0f0;">
+        <p style="font-size: var(--size-caption); color: var(--color-text-secondary); margin: 0;">
+          <strong>评论维度：</strong> R ${persona.rpait_weights?.representation || '-'} |
+          P ${persona.rpait_weights?.philosophy || '-'} |
+          A ${persona.rpait_weights?.aesthetics || '-'} |
+          I ${persona.rpait_weights?.interpretation || '-'} |
+          T ${persona.rpait_weights?.technique || '-'}
+        </p>
+      </div>
+    `;
+    comparisonGrid.appendChild(card);
+  });
+
+  // Show comparison display
+  const display = document.getElementById('comparisonDisplay');
+  if (display) {
+    display.style.display = 'block';
+    setTimeout(() => {
+      display.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+
+  console.log('Comparison displayed for', critiques.length, 'personas');
+}
+
+function hideComparison() {
+  const display = document.getElementById('comparisonDisplay');
   if (display) {
     display.style.display = 'none';
   }
