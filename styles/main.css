@@ -29,11 +29,11 @@
 /* 6. Responsive Design */
 @import url("./responsive.css");
 
-/* ==================== GOOGLE FONTS IMPORT ==================== */
-
-@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap");
-
 /* ==================== THEME VARIABLES REFERENCE ==================== */
+/*
+ * Note: Google Fonts are now imported in index.html <head> for optimal performance
+ * This allows the browser to start downloading fonts before CSS parsing completes
+ */
 
 /*
  * Color Palette:
