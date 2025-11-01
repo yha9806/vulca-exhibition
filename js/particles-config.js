@@ -13,7 +13,8 @@
  * - Respects user's motion preferences (prefers-reduced-motion)
  */
 
-const VulcaParticles = {
+// Declare globally so it can be accessed from console and other scripts
+window.VulcaParticles = {
   // State
   particleSystem: null,
   enabled: true,
@@ -158,11 +159,11 @@ const VulcaParticles = {
  */
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
-    VulcaParticles.init();
+    window.VulcaParticles.init();
   });
 } else {
   // DOM already loaded (script loaded after HTML parsing)
-  VulcaParticles.init();
+  window.VulcaParticles.init();
 }
 
 /**
@@ -171,13 +172,13 @@ if (document.readyState === 'loading') {
 window.addEventListener('resize', () => {
   const isMobile = window.innerWidth < 768;
 
-  if (isMobile && VulcaParticles.enabled) {
+  if (isMobile && window.VulcaParticles.enabled) {
     // Crossed into mobile: disable
-    VulcaParticles.destroy();
-    VulcaParticles.enabled = false;
+    window.VulcaParticles.destroy();
+    window.VulcaParticles.enabled = false;
     console.log('VULCA Particles: Disabled (mobile breakpoint)');
-  } else if (!isMobile && !VulcaParticles.enabled && VulcaParticles.shouldEnable()) {
+  } else if (!isMobile && !window.VulcaParticles.enabled && window.VulcaParticles.shouldEnable()) {
     // Crossed out of mobile: re-enable
-    VulcaParticles.init();
+    window.VulcaParticles.init();
   }
 }, { passive: true });
