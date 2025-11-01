@@ -66,7 +66,8 @@ async function loadData() {
 
     while (retries < maxRetries && !critiquesData) {
       try {
-        const critiquesResponse = await fetch('/data/critiques.json');
+        const timestamp = new Date().getTime();
+        const critiquesResponse = await fetch(`/data/critiques.json?v=${timestamp}`);
         if (!critiquesResponse.ok) throw new Error(`HTTP ${critiquesResponse.status}`);
         critiquesData = await critiquesResponse.json();
       } catch (err) {
