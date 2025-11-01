@@ -50,7 +50,7 @@ const AppState = {
 
     if (this.selectedArtwork && this.selectedPersona) {
       const artwork = this.artworks.find(a => a.id === this.selectedArtwork);
-      const persona = this.personas.find(p => p.persona_id === this.selectedPersona);
+      const persona = this.personas.find(p => p.id === this.selectedPersona);
       statusEl.textContent = `已选择: ${artwork?.title_zh || artwork?.title} & ${persona?.name_zh || persona?.name_en}`;
       btnEl.disabled = false;
       btnEl.style.opacity = '1';
@@ -154,7 +154,7 @@ function renderPersonaSelector() {
   AppState.personas.forEach(persona => {
     const card = document.createElement('div');
     card.className = 'persona-selector-card';
-    card.setAttribute('data-persona-id', persona.persona_id);
+    card.setAttribute('data-persona-id', persona.id);
     card.style.cssText = `
       padding: var(--space-md);
       border: 2px solid transparent;
@@ -190,7 +190,7 @@ function renderPersonaSelector() {
       });
       card.style.borderColor = 'var(--color-accent)';
       card.style.backgroundColor = '#FFF8F0';
-      AppState.setSelectedPersona(persona.persona_id);
+      AppState.setSelectedPersona(persona.id);
     });
 
     container.appendChild(card);
@@ -336,7 +336,7 @@ function handleGetCritique() {
 
 function displayCritique(critique) {
   const artwork = AppState.artworks.find(a => a.id === critique.artwork_id);
-  const persona = AppState.personas.find(p => p.persona_id === critique.persona_id);
+  const persona = AppState.personas.find(p => p.id === critique.persona_id);
 
   if (!artwork || !persona) {
     console.warn('Artwork or persona not found');
