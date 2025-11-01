@@ -62,7 +62,6 @@
       <ul class="nav-desktop flex flex-gap-lg">
         <li><a href="#exhibition">展览</a></li>
         <li><a href="#personas">评论家</a></li>
-        <li><a href="#exhibition-plan">方案</a></li>
         <li><a href="#process">创作过程</a></li>
         <li><a href="#about">关于</a></li>
       </ul>
@@ -80,7 +79,6 @@
       <ul class="flex flex-column flex-gap-md p-lg">
         <li><a href="#exhibition" class="nav-link">展览</a></li>
         <li><a href="#personas" class="nav-link">评论家</a></li>
-        <li><a href="#exhibition-plan" class="nav-link">方案</a></li>
         <li><a href="#process" class="nav-link">创作过程</a></li>
         <li><a href="#about" class="nav-link">关于</a></li>
       </ul>
@@ -299,8 +297,7 @@
         <div class="card card-lg">
           <h3>概念发展</h3>
           <p class="mt-md text-secondary">
-            从初始想法到完整框架的演变。
-            如何将"潮汐的负形"这一主题转化为互动体验。
+            从想法到框架的演变与转化。
           </p>
         </div>
 
@@ -308,8 +305,7 @@
         <div class="card card-lg">
           <h3>设计迭代</h3>
           <p class="mt-md text-secondary">
-            界面设计的多轮推敲，从草稿到最终方案。
-            每个决策背后的思考过程。
+            界面设计的迭代和决策思考。
           </p>
         </div>
 
@@ -317,8 +313,7 @@
         <div class="card card-lg">
           <h3>研究阶段</h3>
           <p class="mt-md text-secondary">
-            6位评论家的选择过程，艺术作品的策展逻辑。
-            文化背景和审美标准的研究。
+            评论家选择与艺术策展研究。
           </p>
         </div>
 
@@ -327,7 +322,6 @@
           <h3>技术实现</h3>
           <p class="mt-md text-secondary">
             从架构设计到功能开发的技术选择。
-            如何整合AI API与用户体验。
           </p>
         </div>
       </div>
@@ -337,85 +331,6 @@
     <div class="section-spacer"></div>
 
     <!-- EXHIBITION PLAN SECTION -->
-    <section id="exhibition-plan" class="container breathing-room">
-      <h2 class="heading-line">展览方案 · 实施规划</h2>
-      <p class="max-w-prose mx-auto text-center mt-md mb-lg">
-        VULCA 艺术装置基础款完整实施方案。预算、时间线、风险控制与升级路径。
-      </p>
-
-      <!-- Plan Overview Card -->
-      <div class="card card-lg mt-lg">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); align-items: center;">
-          <div>
-            <h3 style="font-size: var(--size-body); margin-bottom: var(--space-md);">基础款方案概览</h3>
-            <div style="font-size: 48px; font-weight: 700; color: var(--color-accent); margin-bottom: var(--space-sm);">¥10,700</div>
-            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-md);">4周交付 · 支持30天展期</p>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="margin-bottom: var(--space-sm); display: flex; gap: var(--space-sm);">
-                <span style="color: var(--color-accent);">✓</span>
-                <span>清晰展现"作品 × 角色卡"方法论</span>
-              </li>
-              <li style="margin-bottom: var(--space-sm); display: flex; gap: var(--space-sm);">
-                <span style="color: var(--color-accent);">✓</span>
-                <span>流畅的 AI 驱动互动体验</span>
-              </li>
-              <li style="margin-bottom: var(--space-sm); display: flex; gap: var(--space-sm);">
-                <span style="color: var(--color-accent);">✓</span>
-                <span>GPT-3.5 级别的专业评论生成</span>
-              </li>
-              <li style="display: flex; gap: var(--space-sm);">
-                <span style="color: var(--color-accent);">✓</span>
-                <span>预留清晰的升级路径</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Budget Pie Chart -->
-          <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-            <canvas id="budgetChart" style="max-width: 280px; max-height: 280px;"></canvas>
-            <p style="font-size: var(--size-caption); color: var(--color-text-secondary); margin-top: var(--space-md); text-align: center;">
-              预算分配比例
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Detailed Budget Table -->
-      <div class="card card-lg mt-lg">
-        <h3 style="font-size: var(--size-body); margin-bottom: var(--space-md);">详细预算明细</h3>
-        <div id="budgetTable" style="overflow-x: auto;">
-          <!-- Budget table will be inserted here by JavaScript -->
-        </div>
-      </div>
-
-      <!-- Timeline Section -->
-      <div class="card card-lg mt-lg">
-        <h3 style="font-size: var(--size-body); margin-bottom: var(--space-md);">4周实施时间线</h3>
-        <div id="timelineContainer" style="display: flex; flex-direction: column; gap: var(--space-lg);">
-          <!-- Timeline will be inserted here by JavaScript -->
-        </div>
-      </div>
-
-      <!-- Upgrade Paths Section -->
-      <div class="card card-lg mt-lg">
-        <h3 style="font-size: var(--size-body); margin-bottom: var(--space-md);">升级路径</h3>
-        <p style="color: var(--color-text-secondary); margin-bottom: var(--space-lg);">
-          基础款方案可根据后续资金和需求逐步升级
-        </p>
-        <div id="upgradesContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg);">
-          <!-- Upgrade cards will be inserted here by JavaScript -->
-        </div>
-      </div>
-
-      <!-- Risk Control Section -->
-      <div class="card card-lg mt-lg">
-        <h3 style="font-size: var(--size-body); margin-bottom: var(--space-md);">风险控制</h3>
-        <div id="risksContainer" style="display: flex; flex-direction: column; gap: var(--space-md);">
-          <!-- Risk items will be inserted here by JavaScript -->
-        </div>
-      </div>
-    </section>
-
     <!-- WHITESPACE -->
     <div class="section-spacer"></div>
 
@@ -440,11 +355,7 @@
         </ul>
 
         <p class="mb-md">
-          设计上，我们以 Sougwen Chung 的美学为灵感 — 极简主义、大量留白、有机流动的交互。
-          这个平台本身也是一件艺术作品：用代码和设计呈现文化理解的多重维度。
-        </p>
-
-        <p>
+          <p>
           <em>
             通过AI、艺术和文化的交集，探索我们如何看待和理解彼此的创意表达。
           </em>
